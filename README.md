@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* Be Salla Partner on [Salla Partner Portal](https://salla.partner)
+* Be Salla Partner on [Salla Partner Portal](https://salla.partners)
 * Create your app on [Salla Partner Portal](https://salla.dev/blog/create-your-first-app-on-salla-developer-portal/)
 * PHP >= 7.2
 * Mysql
@@ -31,13 +31,13 @@ DB_PASSWORD=root
 5. Run setup command
 
 ```bash  
-$ php artisan setup 
+php artisan setup 
 ```
 
 5. Run Serve command and go to http://127.0.0.1:8000  🎉
 
 ```bash  
-$ php artisan serve  
+php artisan serve  
 ```  
 
 ## Usage

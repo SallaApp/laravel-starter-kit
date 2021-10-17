@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
@@ -27,7 +28,7 @@ class CreateUsersTable extends Migration
         \App\Models\User::query()->create([
             'name'     => 'Awesome Developer',
             'email'    => 'awesome@salla.dev',
-            'password' => \Illuminate\Support\Facades\Hash::make('in ksa')
+            'password' => Hash::make('in ksa')
         ]);
     }
 
