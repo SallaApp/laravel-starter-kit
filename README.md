@@ -17,15 +17,6 @@ $ composer install
 
 2. Create a database with any name for example `laravel`
 
-3. Fill the database connection details on the `.env` file
-
-```dotenv  
-DB_HOST=127.0.0.1  
-DB_DATABASE=laravel  
-DB_USERNAME=root  
-DB_PASSWORD=root  
-```  
-
 4. Setup the callback url on [Salla Partner Portal](https://salla.partner) to `http://127.0.0.1:8000/oauth/callback`
 
 5. Run setup command
