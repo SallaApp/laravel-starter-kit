@@ -6,12 +6,12 @@ use App\Actions\baseAction;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
- * @property string merchant example "674390266"
+ * @property string merchant example 674390266
  * @property string created_at example "2021-06-02 22:17:06"
- * @property string event example "order.created"
- * @property array data @see https://docs.salla.dev/docs/merchent/openapi.json/components/schemas/OrdersWebhookResponse
+ * @property string event example "order.status.updated"
+ * @property array data @see https://docs.salla.dev/docs/merchent/openapi.json/components/schemas/OrdersUpdateStatusWebhookResponse
  */
-class Created extends baseAction
+class statusUpdated extends baseAction
 {
     use AsAction;
 
