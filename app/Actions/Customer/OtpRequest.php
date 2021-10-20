@@ -2,7 +2,7 @@
 
 namespace App\Actions\Order;
 
-use App\Actions\baseAction;
+use App\Actions\BaseAction;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
@@ -11,7 +11,7 @@ use Lorisleiva\Actions\Concerns\AsAction;
  * @property string event example "customer.otp.request"
  * @property array data @see https://docs.salla.dev/docs/merchent/openapi.json/components/schemas/CustomersOTPRequest
  */
-class otpRequest extends baseAction
+class OtpRequest extends BaseAction
 {
     use AsAction;
 

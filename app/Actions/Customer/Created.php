@@ -2,6 +2,7 @@
 
 namespace App\Actions\Customer;
 
+use App\Actions\BaseAction;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
@@ -10,12 +11,12 @@ use Lorisleiva\Actions\Concerns\AsAction;
  * @property string event example "customer.created"
  * @property array data @see https://docs.salla.dev/docs/merchent/openapi.json/components/schemas/CustomersWebhookResponse
  */
-class Created
+class Created extends BaseAction
 {
     use AsAction;
 
-    public function handle($event)
+    public function handle()
     {
-        // you can do whatever you want by $event
+        // you can do whatever you want
     }
 }

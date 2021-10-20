@@ -2,30 +2,19 @@
 
 namespace App\Actions\App;
 
+use App\Actions\BaseAction;
 use App\Models\User;
 use App\SallaAuthService;
 use Illuminate\Support\Str;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
- * Just in case you want to use in-house auth.
- * You can manage receive the access token from this webhook
- *
- * @example
- * {
- *    "event": "app.store.authorize",
- *    "merchant": 1234509876,
- *    "created_at": "2021-10-07 12:31:25",
- *    "data": {
- *      "access_token": "KGsnBcNNkR2AgHnrd0U9lCIjrUiukF_-Fb8OjRiEcog.NuZv_mJaB46jA2OHaxxxx",
- *      "expires": 1634819484,
- *      "refresh_token": "fWcceFWF9eFH4yPVOCaYHy-UolnU7iJNDH-dnZwakUE.bpSNQCNjbNg6hTxxxx",
- *      "scope": "settings.read branches.read offline_access",
- *      "token_type": "bearer"
- *    }
- *  }
+ * @property string merchant example "1234509876"
+ * @property string created_at example "2021-10-07 12:31:25"
+ * @property string event example "app.store.authorize"
+ * @property array data @see https://docs.salla.dev/docs/merchent/ZG9jOjIzMjE3MjQ0-app-events#app-store-authorize
  */
-class StoreAuthorize
+class StoreAuthorize extends BaseAction
 {
     use AsAction;
 

@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-class baseAction
+class BaseAction
 {
     public function handle()
     {
