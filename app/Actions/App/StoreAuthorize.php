@@ -5,8 +5,8 @@ namespace App\Actions\App;
 use App\Actions\BaseAction;
 use App\Models\User;
 use App\SallaAuthService;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
  * @property string merchant example "1234509876"
@@ -16,8 +16,6 @@ use Lorisleiva\Actions\Concerns\AsAction;
  */
 class StoreAuthorize extends BaseAction
 {
-    use AsAction;
-
     public function handle($event)
     {
         /** @var SallaAuthService $service */
@@ -35,7 +33,7 @@ class StoreAuthorize extends BaseAction
             'email' => $storeDetails->getEmail(),
         ], [
             'name'     => $storeDetails->getStoreOwnerName(),
-            'password' => \Illuminate\Support\Facades\Hash::make(Str::random())
+            'password' => Hash::make(Str::random())
         ]);
 
         /**

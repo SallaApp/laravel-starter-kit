@@ -2,8 +2,6 @@
 
 namespace App\Actions\Order;
 
-use Lorisleiva\Actions\Concerns\AsAction;
-
 /**
  * @property string merchant example "674390266"
  * @property string created_at example "2021-06-02 22:17:06"
@@ -12,8 +10,6 @@ use Lorisleiva\Actions\Concerns\AsAction;
  */
 class ShipmentReturnCreated extends BaseAction
 {
-    use AsAction;
-
     public function handle()
     {
         // you can do whatever you want

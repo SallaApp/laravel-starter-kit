@@ -18,7 +18,7 @@ class WebhookController extends Controller
             return response('Ok, but without process');
         }
 
-        $classOfAction::make()->run($request);
+        $classOfAction::make()->setRequest($request)->run();
 
         return response('🎉');
     }

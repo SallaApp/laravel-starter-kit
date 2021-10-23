@@ -3,7 +3,6 @@
 namespace App\Actions\App;
 
 use App\Actions\BaseAction;
-use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
  * @property string merchant example "1234509876"
@@ -13,8 +12,6 @@ use Lorisleiva\Actions\Concerns\AsAction;
  */
 class Installed extends BaseAction
 {
-    use AsAction;
-
     public function handle()
     {
         // you can do whatever you want

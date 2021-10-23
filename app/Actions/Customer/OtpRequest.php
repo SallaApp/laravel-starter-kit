@@ -3,7 +3,6 @@
 namespace App\Actions\Order;
 
 use App\Actions\BaseAction;
-use Lorisleiva\Actions\Concerns\AsAction;
 
 /**
  * @property string merchant example "1029864349"
@@ -13,8 +12,6 @@ use Lorisleiva\Actions\Concerns\AsAction;
  */
 class OtpRequest extends BaseAction
 {
-    use AsAction;
-
     public function handle()
     {
         // you can do whatever you want
