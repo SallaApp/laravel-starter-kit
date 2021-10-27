@@ -18,6 +18,9 @@ class StoreAuthorize extends BaseAction
 {
     public function handle($event)
     {
+        if (config('services.salla.authorization_mode') !== 'easy') {
+            return ;
+    }
         /** @var SallaAuthService $service */
         $service = app()->make(SallaAuthService::class);
 

@@ -31,9 +31,10 @@ return [
     ],
 
     'salla' => [
-        'client_id'      => env('SALLA_OAUTH_CLIENT_ID'),
-        'client_secret'  => env('SALLA_OAUTH_CLIENT_SECRET'),
-        'redirect'       => env('SALLA_OAUTH_CLIENT_REDIRECT_URI'),
-        'webhook_secret' => env('SALLA_WEBHOOK_SECRET'),
+        'client_id'          => env('SALLA_OAUTH_CLIENT_ID'),
+        'client_secret'      => env('SALLA_OAUTH_CLIENT_SECRET'),
+        'redirect'           => env('SALLA_OAUTH_CLIENT_REDIRECT_URI'),
+        'webhook_secret'     => env('SALLA_WEBHOOK_SECRET'),
+        'authorization_mode' => env('SALLA_AUTHORIZATION_MODE', 'easy')   // Supported: "easy", "custom"
     ]
 ];
