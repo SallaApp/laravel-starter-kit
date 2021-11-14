@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\OauthToken;
 use App\Models\User;
 use Illuminate\Support\Traits\ForwardsCalls;
 use League\OAuth2\Client\Token\AccessToken;
@@ -19,10 +20,11 @@ class SallaAuthService
      * @var Salla
      */
     protected $provider;
+
     /**
-     * @var AccessToken
+     * @var OauthToken
      */
-    protected $access_token;
+    protected $token;
 
     public function __construct()
     {
@@ -33,9 +35,16 @@ class SallaAuthService
         ]);
     }
 
+    /**
+     * Get the token from the user model.
+     *
+     * @param  User  $user
+     *
+     * @return $this
+     */
     public function forUser(User $user)
     {
-        $this->setAccessToken($user->token->toArray());
+        $this->token = $user->token;
 
         return $this;
     }
@@ -46,18 +55,6 @@ class SallaAuthService
     public function getProvider(): Salla
     {
         return $this->provider;
-    }
-
-    /**
-     * @param  array  $accessToken
-     *
-     * @return SallaAuthService
-     */
-    public function setAccessToken(array $accessToken)
-    {
-        $this->access_token = new AccessToken($accessToken);
-
-        return $this;
     }
 
     /**
@@ -87,7 +84,7 @@ class SallaAuthService
      */
     public function getStoreDetail()
     {
-        return $this->provider->getResourceOwner($this->access_token);
+        return $this->provider->getResourceOwner(new AccessToken($this->token->toArray()));
     }
 
     /**
@@ -98,19 +95,32 @@ class SallaAuthService
      */
     public function getNewAccessToken()
     {
+        if ($this->token->hasExpired()) {
+            return new AccessToken($this->token->toArray());
+        }
+
         // let's request a new access token via refresh token.
         $token = $this->provider->getAccessToken('refresh_token', [
-            'refresh_token' => auth()->user()->token->refresh_token
+            'refresh_token' => $this->token->refresh_token
         ]);
 
         // lets update user tokens
-        auth()->user()->token()->create([
+        $this->token->update([
             'access_token'  => $token->getToken(),
             'expires_in'    => $token->getExpires(),
             'refresh_token' => $token->getRefreshToken()
         ]);
 
         return $token;
+    }
+
+    public function request(string $method, string $url, array $options = [])
+    {
+        // you need always to check the token before made a request
+        // If the token expired, lets request a new one and save it to the database
+        $this->getNewAccessToken();
+
+        return $this->provider->fetchResource($method, $url, $this->token->access_token, $options);
     }
 
     /**

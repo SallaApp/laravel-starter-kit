@@ -13,11 +13,10 @@
 
 ```bash  
 $ composer install
+$ npm install && npm run prod
 ```
 
 2. Create a database with any name for example `laravel`
-
-4. Setup the callback url on [Salla Partner Portal](https://salla.partner) to `http://127.0.0.1:8000/oauth/callback`
 
 5. Run setup command
 
@@ -42,5 +41,12 @@ php artisan serve
 - Give the access to your `Demo App`
 - The browser will redirect your again to `Laravel App`
 
-- npm install && npm run dev
+> 4. Setup the callback url on [Salla Partner Portal](https://salla.partner) to `http://127.0.0.1:8000/oauth/callback`
+
+
+## Create A new action
+
+```sh
+php artisan make:salla.webhook {event-name}
+```
 

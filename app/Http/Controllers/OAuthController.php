@@ -25,6 +25,8 @@ class OAuthController extends Controller
 
     public function callback(Request $request)
     {
+        abort_if(config('services.salla.authorization_mode') !== 'easy', 401,'The Authorization mode is not supported');
+
         // Try to obtain an access token by utilizing the authorisations code grant.
         try {
             $token = $this->service->getAccessToken('authorization_code', [
@@ -75,22 +77,12 @@ class OAuthController extends Controller
                 'refresh_token' => $token->getRefreshToken()
             ]);
 
-            return redirect('/dashboard'); // TODO :: change it later to https://s.salla.sa/apps before go alive
+            // TODO :: change it later to https://s.salla.sa/apps before go alive
+            return redirect('/dashboard');
         } catch (IdentityProviderException $e) {
             // Failed to get the access token or merchant details.
             // show an error message to the merchant with good UI
             return redirect('/dashboard')->withStatus($e->getMessage());
         }
-    }
-
-    public function refresh()
-    {
-        try {
-            $token = $this->service->getNewAccessToken();
-        } catch (IdentityProviderException $e) {
-            return redirect('/dashboard')->withStatus($e->getMessage());
-        }
-
-        return redirect('/dashboard');
     }
 }

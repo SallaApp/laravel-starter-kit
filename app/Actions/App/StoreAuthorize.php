@@ -7,6 +7,7 @@ use App\Models\User;
 use App\SallaAuthService;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * @property string merchant example "1234509876"
@@ -21,13 +22,15 @@ class StoreAuthorize extends BaseAction
         if (config('services.salla.authorization_mode') !== 'easy') {
             return ;
         }
+
+
         /** @var SallaAuthService $service */
         $service = app()->make(SallaAuthService::class);
 
         /*
          * Lets get the store details using the access token in the event
          */
-        $storeDetails = $service->setAccessToken($event->data)->getStoreDetail();
+        $storeDetails = $service->getResourceOwner(new AccessToken($event->data));
 
         /**
          * We can now create a user base in the details
