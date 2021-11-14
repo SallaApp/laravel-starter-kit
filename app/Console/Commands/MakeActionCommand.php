@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class MakeActionCommand extends GeneratorCommand
 {
-    protected $name = 'make:salla.webhook';
+    protected $name = 'make:webhook.event';
 
     protected $description = 'Create a new Action to handling Salla webhook event';
 

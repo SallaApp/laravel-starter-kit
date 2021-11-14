@@ -47,6 +47,6 @@ php artisan serve
 ## Create A new action
 
 ```sh
-php artisan make:salla.webhook {event-name}
+php artisan make:webhook.event {event-name}
 ```
 
