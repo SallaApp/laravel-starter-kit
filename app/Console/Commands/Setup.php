@@ -39,6 +39,14 @@ class Setup extends Command
             $this->writeNewEnvironmentFileWith($client_secret, 'SALLA_OAUTH_CLIENT_SECRET');
         }
 
+        $auth_mode = $this->choice('Authorization Mode', [
+            'easy' => 'The access token is generated automatically at Salla\'s side back to you via webhook event (App\Actions\App\StoreAuthorize.php)',
+            'custom' => 'The access token is generated at current application via callback page (App/Http/Controllers/OAuthController.php)'
+        ],'easy', 3);
+        if (!empty($auth_mode)) {
+            $this->writeNewEnvironmentFileWith($auth_mode, 'SALLA_AUTHORIZATION_MODE');
+        }
+
         $webhook_secret = $this->ask('Webhook Secret');
         if (!empty($webhook_secret)) {
             $this->writeNewEnvironmentFileWith($webhook_secret, 'SALLA_WEBHOOK_SECRET');
