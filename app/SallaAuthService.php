@@ -31,7 +31,7 @@ class SallaAuthService
         $this->provider = new Salla([
             'clientId'     => config('services.salla.client_id'), // The client ID assigned to you by Salla
             'clientSecret' => config('services.salla.client_secret'), // The client password assigned to you by Salla
-            'redirectUri'  => route('oauth.callback'), // the url for current page in your service
+            'redirectUri'  => $this->isEasyMode() ? null : route('oauth.callback'), // the url for current page in your service
         ]);
     }
 
@@ -135,5 +135,15 @@ class SallaAuthService
     public function __call($name, $arguments)
     {
         return $this->forwardCallTo($this->provider, $name, $arguments);
+    }
+
+    /**
+     * Determine if the authorization mode is easy
+     *
+     * @return bool
+     */
+    public function isEasyMode(): bool
+    {
+        return config('services.salla.authorization_mode') === 'easy';
     }
 }

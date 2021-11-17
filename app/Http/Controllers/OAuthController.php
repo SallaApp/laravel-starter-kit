@@ -25,7 +25,7 @@ class OAuthController extends Controller
 
     public function callback(Request $request)
     {
-        abort_if(config('services.salla.authorization_mode') !== 'easy', 401,'The Authorization mode is not supported');
+        abort_if($this->service->isEasyMode(), 401,'The Authorization mode is not supported');
 
         // Try to obtain an access token by utilizing the authorisations code grant.
         try {

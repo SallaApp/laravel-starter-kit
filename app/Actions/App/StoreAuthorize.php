@@ -17,20 +17,19 @@ use League\OAuth2\Client\Token\AccessToken;
  */
 class StoreAuthorize extends BaseAction
 {
-    public function handle($event)
+    public function handle()
     {
-        if (config('services.salla.authorization_mode') !== 'easy') {
-            return ;
-        }
-
-
         /** @var SallaAuthService $service */
         $service = app()->make(SallaAuthService::class);
+
+        if (!$service->isEasyMode()) {
+            return;
+        }
 
         /*
          * Lets get the store details using the access token in the event
          */
-        $storeDetails = $service->getResourceOwner(new AccessToken($event->data));
+        $storeDetails = $service->getResourceOwner(new AccessToken($this->data));
 
         /**
          * We can now create a user base in the details
@@ -47,9 +46,9 @@ class StoreAuthorize extends BaseAction
          */
         $user->token()->create([
             'merchant'      => $storeDetails->getStoreId(),
-            'access_token'  => $event->data['access_token'],
-            'expires_in'    => $event->data['expires'],
-            'refresh_token' => $event->data['refresh_token']
+            'access_token'  => $this->data['access_token'],
+            'expires_in'    => $this->data['expires'],
+            'refresh_token' => $this->data['refresh_token']
         ]);
 
         // You can also save the store details from $storeDetails object
