@@ -52,7 +52,7 @@
         "post-create-project-cmd": [
             "@php artisan setup --ansi",
             "npm install",
-            "npm run prod",
+            "npm run prod"
         ]
     },
     "extra": {
