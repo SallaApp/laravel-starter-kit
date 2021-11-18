@@ -73,10 +73,10 @@
 
 <!-- Overview -->
 ## Overview
-This is a starter App includes a Laravel application equipped with the required auth processes and webhooks/actions that help you to create your Salla App which works with the [Salla APIs](https://docs.salla.dev/). Your App later can be published to the [Salla App Store](https://apps.salla.sa/) and be available for installation to any of Salla [Merchants Stores](https://s.salla.sa/). 
+This is a starter App includes a Laravel application equipped with the required auth processes and webhooks/actions that help you to create your Salla App which works with the [Salla APIs](https://docs.salla.dev/). Your App later can be published to the [Salla App Store](https://apps.salla.sa/) and be available for installation to any of Salla [Merchants Stores](https://s.salla.sa/).
 
 What can you use this starter App for?
-* Create a Salla App from scratch, e.g. chatbot app, payment gateway app, or shipping service app.
+* Create a Salla App from scratch, e.g. chatbot app or shipping service app or any amazing app from your idea.
 * Modify/Customize any of your previous Apps in order to take the advantages given by this starter App.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -89,7 +89,7 @@ The starter App comes with an easy _1-command step_ that does the complete setup
 -   Create a Partner account at  [Salla Partner Portal](https://salla.partners/)
 -   Create your App in [Salla Partner Portal](https://salla.dev/blog/create-your-first-app-on-salla-developer-portal/)
 
-    > 📝 From your App dashbaord at [Salla Partner Portal](https://salla.partners/), you will be able to get your App's _Client ID, Client Secret Key and Webhook Secret Key_ which you will use later duraing the setup process.
+    > From your App dashbaord at [Salla Partner Portal](https://salla.partners/), you will be able to get your App's _Client ID, Client Secret Key and Webhook Secret Key_ which you will use later duraing the setup process.
 
 -   For Laravel compatibility: `PHP >= 7.4, Composer package manager and MySql Database`
 -   Other requirments: `Nodejs and npm`
@@ -107,76 +107,69 @@ composer create-project salla/laravel-start-kit {your-awesome-app}
 ```
 
 The above `create-project` will take you through a step-by-step process in which you'll enter your App's _Client ID, Client Secret Key, and Webhook Secret Key_, which you can get from your App dashboard in the Partners Panel, as well as your database name, which is set to `laravel` by default.
-   
-> 📝 The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
 
-> 📝 In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Partner Portal](https://salla.partners/)**
+> The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
+> In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)**
 
 
 3. **Last step**: in your command line: **run** `serve.remote` command
 ```sh
 php artisan serve.remote
    ```
-Now you can open your broswer to view your App at [http://127.0.0.1:8000](http://127.0.0.1:8000/)  🎉
 
-> 📝 In case of selecting the [`Easy Mode`](#easy-mode) for the authorization, you will receive the following Urls:
-<table>
-    <tr valign="top">
-        <td>
-            <ol>
-	            <li><em>Local App Url</em>: The local link for your App.</li>
-	            <li><em>Remote App Url</em>: The online link to your App. It will be always synced with the local Url</li>
-	            <li><em>Webhook Url</em>: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
-            </ol>
-        </td>
-        <td><img src="https://i.imgur.com/rDW1gB8.png" width="1000" alt="Easy-Mode-Auth"></td>
-    </tr>
-</table>
+Now you can open your broswer to view your App at `Remote App Url` in the output URLs.  🎉
 
-> 📝 In case of selecting the [`Custom Mode`](#custom-mode) for the authorization, you will receive, you will receive the following Urls::
-<table style="width: 100%;">
-    <tr valign="top">
-        <td>
-            <ol>
-	            <li><em>Local App Url</em>: The local link for your App.</li>
-	            <li><em>Remote App Url</em>: The online link to your App. It will be always synced with the local Url</li>
-	            <li><em>Webhook Url</em>: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
-	            <li><em>OAuth Callback Url</em>: The App entry page where the access token generated.</li>
-            </ol>
-        </td>
-        <td align="right"><img src="https://i.imgur.com/Sd4ztiD.png" width="1000" alt="Custom-Mode-Auth"></td>
-    </tr>
-</table>
+
+| URL               | Description                                                                                                              |
+|------------------|-----------------------------------------------------------------------------------------------------------------|
+| Local App Url      | The local link for your App\.                                                                                     |
+| Remote App Url     | The online link to your App\. It will be always synced with the local Url                                         |
+| Webhook Url        | The Url link that connects your App with any action may happen at the Merchant store, e\.g\. create new product\. |
+| OAuth Callback Url | The App entry page where the access token generated                                                               |
+
+
+In case of selecting the [`Easy Mode`](#easy-mode) for the authorization, you will receive the following Urls:
+
+<img src="https://i.imgur.com/rDW1gB8.png" width="1000" alt="Easy-Mode-Auth">
+
+In case of selecting the [`Custom Mode`](#custom-mode) for the authorization, you will receive, you will receive the following Urls:
+
+<img src="https://i.imgur.com/Sd4ztiD.png" width="1000" alt="Custom-Mode-Auth">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Configure Authorization Modes <span id='auth-modes'>
-While creating your App in the [Partners Portal](https://salla.partners/), you will see that Salla provids two methods for the OAuth protocol, which are the `Easy Mode` and the `Custom Mode`.
-> 📝 During the setup process, the default _OAuth protocol_ will be set to the `Easy Mode`, which can be configured from the file [`config/services.php`](config/services.php).
 
-> 📝 All of the setup's values/keys are stored in the `.env` file as we can see in the below image.
+While creating your App in the [Salla Partners Portal](https://salla.partners/), you will see that Salla provids two methods for the OAuth protocol, which are the `Easy Mode` and the `Custom Mode`.
+    
+> During the setup process, the default _OAuth protocol_ will be set to the `Easy Mode`, which can be configured from the file [`.env`](.env).
+> All of the setup's values/keys are stored in the `.env` file as we can see in the below image.
 
 <p align="center"><img src="https://i.imgur.com/TvSCAWC.png" width="660" alt="Salla Laravel App folder structure"></p>
 
-#### Easy Mode: 
+#### Easy Mode:
+    
 This mode is the default mode for the authorization, which means that the `access token` is generated automatically at Salla's side back to you.
-> 📝 You may refere to the class [`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18) which is defined inside [`app\Actions\App\StoreAuthorize.php`](app/Actions/App/StoreAuthorize.php) to get more detailes on how to receive and manage the `access token`
+You may refere to the class [`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18) which is defined inside [`app\Actions\App\StoreAuthorize.php`](app/Actions/App/StoreAuthorize.php) to get more detailes on how to receive and manage the `access token`
 
-#### Custom Mode: 
-A callback Url is the Url that is triggered when the App has been granted authorization. This should be a valid Url to which the merchant's browser is redirected. In this mode, you will need to set a custom callback url from the App dashboard at the [Partner Portal](https://salla.partners/). This callback url will redirect the merchants who are interested in using your app into your App entry page where the access token generated.
-> 📝 You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Controllers/OAuthController.php) which contains the [`callback()`](app/Http/Controllers/OAuthController.php#L26) function. This function is responsiable for generating the `access token`
+    
+#### Custom Mode:
+    
+A callback Url is the Url that is triggered when the App has been granted authorization. This should be a valid Url to which the merchant's browser is redirected. In this mode, you will need to set a custom callback url from the App dashboard at the [Salla Partner Portal](https://salla.partners/). This callback url will redirect the merchants who are interested in using your app into your App entry page where the access token generated.
 
-> 📝 The custom url will redirect the merchant to the [Store Dashboard](https://s.salla.sa/apps) in order to access the Store where he needs your App to be installed.
+You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Controllers/OAuthController.php) which contains the [`callback()`](app/Http/Controllers/OAuthController.php#L26) function. This function is responsiable for generating the `access token`
+
+> The custom url will redirect the merchant to the [Store Dashboard](https://s.salla.sa/apps) in order to access the Store where he needs your App to be installed.
 
 TODO
-- Token refresh(). 
+- Token refresh().
 
 ## Usage
 
 - Upon installation, your Laravel App home page will be available at http://127.0.0.1:8000. You need to start with doing _Login_.
 - Login to the Laravel App with the demo account:
-	>  Email:  `awesome@salla.dev`
-    >  Password:  `in ksa`
+  >  Email:  `awesome@salla.dev`
+  >  Password:  `in ksa`
 - Click the button to request the _Access Token_.
 - The Laravel App will redirect you to Merchent Auth Page.
 - Login using a Merchent Account.
@@ -213,8 +206,8 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 | [order.shipment.return.created](app/Actions/Order/ShipmentReturnCreated.php)      | This is triggered when a returned order shipment has been created              |
 | [order.shipment.return.cancelled](app/Actions/Order/ShipmentReturnCancelled.php)  | This is triggered when a returned order shipment has been cancelled            |
 | [order.shipping.address.updated](app/Actions/Order/ShippingAddressUpdated.php)    | Occurs when an Order shipping address is updated                               |
- 
-                                      
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Products Related Webhooks/Actions
@@ -259,7 +252,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 | [brand.deleted](app/Actions/Brand/Deleted.php)  | An existing brand is then deleted and removed from a store                             |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-    
+
 ### Store Related Webhooks/Actions
 
 | ** Action Name **                                                  | ** Description **                    |
@@ -272,7 +265,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 | [storetax.created](app/Actions/Store/TaxCreated.php)               | Creats a new Store Tax               |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-    
+
 ### Coupon Related Webhooks/Actions
 
 | ** Action Name **                                                          | ** Description **                                 |
@@ -284,7 +277,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 | [specialoffer.updated](app/Actions/Miscellaneous/SpecialofferUpdated.php)  | Updates a special offer                           |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-    
+
 <!-- COMMANDS -->
 ## Commands
 ### Setup command
@@ -295,8 +288,8 @@ php artisan setup
 ```
 
 ### Create new Webhook/Action command
-The predefined [Webhooks](#webhooks), events/actions, can be found in folder [`app/Actions`](https://github.com/SallaApp/Laravel-Start-Kit/tree/master/app/Actions). 
-> 📝 You may define your own new webhook/action the way fits your App's requirments.
+The predefined [Webhooks](#webhooks), events/actions, can be found in folder [`app/Actions`](https://github.com/SallaApp/Laravel-Start-Kit/tree/master/app/Actions).
+> You may define your own new webhook/action the way fits your App's requirments.
 ```sh
 php artisan make:webhook.event {event-name}
 ```
@@ -304,10 +297,10 @@ php artisan make:webhook.event {event-name}
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. 
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create.
 Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. 
+If you have a suggestion that would make this better, please fork the repo and create a pull request.
 You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
