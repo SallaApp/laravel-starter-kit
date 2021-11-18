@@ -20,7 +20,7 @@
     <br />
     <br />
     <a href="https://github.com/SallaApp/Laravel-Start-Kit/issues/new">Report Bug</a> · 
-    <a href="https://github.com/SallaApp/Laravel-Start-Kit/discussions/new">Request Feature</a> . <a href="https://t.me/salladev">&lt;/Salla Developers&gt; Channel</a>
+    <a href="https://github.com/SallaApp/Laravel-Start-Kit/discussions/new">Request Feature</a> . <a href="https://t.me/salladev">&lt;/Salla Developers&gt;</a>
   </p>
 </div>
 
