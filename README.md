@@ -92,6 +92,7 @@ The starter App comes with an easy _1-command step_ that does the complete setup
     > From your App dashbaord at [Salla Partner Portal](https://salla.partners/), you will be able to get your App's _Client ID, Client Secret Key and Webhook Secret Key_ which you will use later duraing the setup process.
 
 -   For Laravel compatibility: `PHP >= 7.4, Composer package manager and MySql Database`
+-   Install [ngrok](https://www.npmjs.com/package/ngrok): `npm install ngrok -g`
 -   Other requirments: `Nodejs and npm`
 
 That is all!
