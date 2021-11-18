@@ -98,18 +98,14 @@ That is all!
 
 ### Installation
 The installation process is straightforward as you will see in the below steps.
-  1.  In your command line: **run** the following install commands.
+
+1. In your MySql Database: **create a database** with any name for example  `laravel`.
+
+2.  In your command line: **run** the following install commands.
 ```sh
 composer create-project salla/laravel-start-kit {your-awesome-app}
-npm install 
-npm run prod
-   ```
-2. In your MySql Database: **create a database** with any name for example  `laravel`.
+```
 
-3.  In your command line: **run** `setup` command.
-```sh
-php artisan setup
-   ```
 The setup will take you through a step-by-step process in which you'll enter your App's _Client ID, Client Secret Key, and Webhook Secret Key_, which you can get from your App dashboard in the Partners Panel, as well as your database name, which is set to `laravel` by default.
    
 > 📝 The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
