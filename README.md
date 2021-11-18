@@ -113,7 +113,7 @@ The above `create-project` will take you through a step-by-step process in which
 > In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)**
 
 
-3. **Last step**: in your command line: **run** `serve.remote` command
+3. **Last step**: in your command line: **run** `php artisan serve.remote` command
 
 ![8HPj07id-2021-11-19 at 00 15 37](https://user-images.githubusercontent.com/10876587/142498178-73e13f33-8f2a-401c-b7b0-7278e282be57.gif)
 
