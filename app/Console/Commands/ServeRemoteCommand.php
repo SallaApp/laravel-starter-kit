@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 use Symfony\Component\Process\Process;
 
 class ServeRemoteCommand extends Command
@@ -42,23 +43,30 @@ class ServeRemoteCommand extends Command
 
         foreach ($process as $type => $data) {
 
-            if (preg_match('/msg="starting web service".*? addr=(?<addr>\S+)/', $data, $matches)) {
-                $this->line('<fg=green>Ngrok Web Interface: </fg=green>'.'http://'.$matches['addr']);
-            }
+//            if (preg_match('/msg="starting web service".*? addr=(?<addr>\S+)/', $data, $matches)) {
+//                $this->line('<fg=green>Ngrok Web Interface: </fg=green>'.'http://'.$matches['addr']);
+//            }
 
             if (preg_match('/msg="started tunnel".*? addr=(?<addr>\S+)/', $data, $matches)) {
-                $this->line('<fg=green>Local Web Interface: </fg=green>'.$matches['addr']);
+                $this->line('<fg=green>Local App URL: </fg=green>'.$matches['addr']);
             }
 
             if (preg_match_all('/msg="started tunnel".*? url=(?<url>\S+)/m', $data, $matches)) {
-                $this->line('<fg=green>Remote Web Interface: </fg=green>'.implode(' , ', $matches['url']));
-                $webhook_urls = implode(' , ', array_map(function ($url) use ($webhook_url) {
+                $this->line('<fg=green>Remote App URL: </fg=green>'.collect(implode(' , ',
+                        $matches['url']))->filter(function ($url) {
+                        return Str::startsWith($url, 'https');
+                    })->implode(' , '));
+                $webhook_urls = collect($matches['url'])->filter(function ($url) {
+                    return Str::startsWith($url, 'https');
+                })->map(function ($url) use ($webhook_url) {
                     return $url.$webhook_url;
-                }, $matches['url']));
+                })->implode(', ');
                 $this->line('<fg=green>Webhook URL: </fg=green>'.$webhook_urls);
-                $callback_urls = implode(' , ', array_map(function ($url) use ($callback_url) {
+                $callback_urls = collect($matches['url'])->filter(function ($url) {
+                    return Str::startsWith($url, 'https');
+                })->map(function ($url) use ($callback_url) {
                     return $url.$callback_url;
-                }, $matches['url']));
+                })->implode(', ');
                 $this->line('<fg=green>OAuth Callback URL: </fg=green>'.$callback_urls);
             }
 
