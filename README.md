@@ -112,13 +112,14 @@ The setup will take you through a step-by-step process in which you'll enter you
 
 > 📝 In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Partner Portal](https://salla.partners/)**
 
+
 4. **Last step**: in your command line: **run** `serve.remote` command
 ```sh
 php artisan serve.remote
    ```
 Now you can open your broswer to view your App at [http://127.0.0.1:8000](http://127.0.0.1:8000/)  🎉
 
-> 📝 In case of selecting [`Easy Mode`](#easy-mode) for authorization, you will receive the following Urls:
+> 📝 In case of selecting the [`Easy Mode`](#easy-mode) for the authorization, you will receive the following Urls:
 <table>
     <tr valign="top">
         <td>
@@ -132,7 +133,7 @@ Now you can open your broswer to view your App at [http://127.0.0.1:8000](http:/
     </tr>
 </table>
 
-> 📝 In case of selecting [`Custom Mode`](#custom-mode) for authorization, you will receive, you will receive the following Urls::
+> 📝 In case of selecting the [`Custom Mode`](#custom-mode) for the authorization, you will receive, you will receive the following Urls::
 <table style="width: 100%;">
     <tr valign="top">
         <td>
