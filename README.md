@@ -98,13 +98,9 @@ That is all!
 
 ### Installation
 The installation process is straightforward as you will see in the below steps.
-1. In your command line: **clone** the repo and _**cd** to its folder_
+  1.  In your command line: **run** the following install commands.
 ```sh
-git clone https://github.com/SallaApp/Laravel-Start-Kit.git
-   ``` 
-  2.  In your command line: **run** the following install commands.
-```sh
-composer install
+composer create-project salla/laravel-start-kit {your-awesome-app}
 npm install 
 npm run prod
    ```
