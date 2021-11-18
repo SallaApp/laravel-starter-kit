@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\SallaAuthService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
 class ServeRemoteCommand extends Command
@@ -31,6 +32,12 @@ class ServeRemoteCommand extends Command
      */
     public function handle(): int
     {
+        if (!$this->verifyCommand('ngrok')) {
+            $this->comment('Ngrok required to share your project publicly, you can install ngrok via');
+            $this->comment('`npm install ngrok -g` or `yarn install ngrok -g`.');
+            return 1;
+        }
+
         $port = $this->option('port') ? : '8000';
 
         $command = ['ngrok', 'http', '--log', 'stdout'];
@@ -53,8 +60,6 @@ class ServeRemoteCommand extends Command
             }
 
             if (preg_match_all('/msg="started tunnel".*? url=(?<url>\S+)/m', $data, $matches)) {
-                $this->line('<fg=green>Remote App URL: </fg=green>'.$matches['url'][1] ?? $matches['url'][0]);
-
                 $this->newLine(1);
                 $this->comment("Please go to \"Salla Partners Portal\" And copy the following \"Webhook Url\" \nto the Callback URL field in the \"App Details -> Webhooks/Notifications\" section:");
                 $webhook_urls = collect($matches['url'])->filter(function ($url) {
@@ -77,22 +82,34 @@ class ServeRemoteCommand extends Command
                     $this->line('<fg=green>OAuth Callback URL: </fg=green>'.$callback_urls);
                     $this->newLine(1);
                 }
+
+
+                $this->line('🎉 Now you can open your broswer to view your App at ');
+                $this->line('<fg=green>Remote App URL: </fg=green>'.$matches['url'][1] ?? $matches['url'][0]);
+                $this->comment('As always, happy hacking! 🙌');
             }
 
 
             if ($process::OUT === $type) {
                 $this->line($data, null, 'vv');
             } else {
-                $this->warn("error :- ".$data);
+                $this->warn("Failed start ngrok :- ".$data);
             }
 
-            return Str::contains($data,'started tunnel');
+            return Str::contains($data, 'started tunnel');
         });
 
-        $this->call('serve', [
+        $this->{$this->verbosity !== OutputInterface::VERBOSITY_NORMAL ? 'call' : 'callSilent'}('serve', [
             '--port' => $port
         ]);
 
         return 0;
+    }
+
+    protected function verifyCommand($command): bool
+    {
+        $windows = strncmp(PHP_OS, 'WIN', 3) === 0;
+        $test = $windows ? 'where' : 'command -v';
+        return is_executable(trim(shell_exec("$test $command")));
     }
 }
