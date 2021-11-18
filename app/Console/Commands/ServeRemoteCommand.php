@@ -52,8 +52,7 @@ class ServeRemoteCommand extends Command
             }
 
             if (preg_match_all('/msg="started tunnel".*? url=(?<url>\S+)/m', $data, $matches)) {
-                $this->line('<fg=green>Remote App URL: </fg=green>'.collect(implode(' , ',
-                        $matches['url']))->filter(function ($url) {
+                $this->line('<fg=green>Remote App URL: </fg=green>'.collect($matches['url'])->filter(function ($url) {
                         return Str::startsWith($url, 'https');
                     })->implode(' , '));
                 $webhook_urls = collect($matches['url'])->filter(function ($url) {
