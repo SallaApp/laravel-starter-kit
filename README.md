@@ -20,12 +20,12 @@
     <br />
     <br />
     <a href="https://github.com/SallaApp/Laravel-Start-Kit/issues/new">Report Bug</a> · 
-    <a href="https://github.com/SallaApp/Laravel-Start-Kit/discussions/new">Request Feature</a>
+    <a href="https://github.com/SallaApp/Laravel-Start-Kit/discussions/new">Request Feature</a> . <a href="https://t.me/salladev">&lt;/Salla Developers&gt; Channel</a>
   </p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<details open>
   <summary>Table of Contents</summary>
   <ol>
     <li>
