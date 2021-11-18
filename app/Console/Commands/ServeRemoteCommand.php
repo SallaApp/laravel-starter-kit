@@ -56,7 +56,7 @@ class ServeRemoteCommand extends Command
                 $this->line('<fg=green>Remote App URL: </fg=green>'.$matches['url'][1] ?? $matches['url'][0]);
 
                 $this->newLine(1);
-                $this->comment('Please go to Salla Partner App -> My Apps -> App Details and update the webhook url to:');
+                $this->comment("Please go to \"Salla Partners Portal\" And copy the following \"Webhook Url\" \nTo the Callback URL field in the \"App Details -> Webhooks/Notifications\" section:");
                 $webhook_urls = collect($matches['url'])->filter(function ($url) {
                     return Str::startsWith($url, 'https');
                 })->map(function ($url) use ($webhook_url) {
@@ -68,7 +68,7 @@ class ServeRemoteCommand extends Command
                 if (!app(SallaAuthService::class)->isEasyMode()) {
 
                     $this->newLine(1);
-                    $this->comment('Please go to Salla Partner App -> My Apps -> App Details and update the callback url to:');
+                    $this->comment("Please go to \"Salla Partners Portal\" and copy the following \"OAuth Callback URL\" \nTo the Callback URL field in the \"App Details -> Applications Keys\" section:");
                     $callback_urls = collect($matches['url'])->filter(function ($url) {
                         return Str::startsWith($url, 'https');
                     })->map(function ($url) use ($callback_url) {
