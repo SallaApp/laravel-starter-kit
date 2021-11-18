@@ -112,9 +112,9 @@ The setup will take you through a step-by-step process in which you'll enter you
 
 > 📝 In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Partner Portal](https://salla.partners/)**
 
-4. In your command line: **run** `serve` command
+4. In your command line: **run** `serve.remote` command
 ```sh
-php artisan serve
+php artisan serve.remote
    ```
    
 Now you can open your broswer to view your App at [http://127.0.0.1:8000](http://127.0.0.1:8000/)  🎉
@@ -140,10 +140,6 @@ A callback Url is the Url that is triggered when the App has been granted author
 
 TODO
 - [] Token refresh(). 
-   ```sh
-   npm install ngrok -g
-   php artisan serve.remote
-   ```
 
 ## Usage
 
