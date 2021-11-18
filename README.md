@@ -114,9 +114,8 @@ The above `create-project` will take you through a step-by-step process in which
 
 
 3. **Last step**: in your command line: **run** `serve.remote` command
-```sh
-php artisan serve.remote
-   ```
+
+![8HPj07id-2021-11-19 at 00 15 37](https://user-images.githubusercontent.com/10876587/142498178-73e13f33-8f2a-401c-b7b0-7278e282be57.gif)
 
 Now you can open your broswer to view your App at `Remote App Url` in the output URLs.  🎉
 
@@ -128,14 +127,6 @@ Now you can open your broswer to view your App at `Remote App Url` in the output
 | Webhook Url        | The Url link that connects your App with any action may happen at the Merchant store, e\.g\. create new product\. |
 | OAuth Callback Url | The App entry page where the access token generated                                                               |
 
-
-In case of selecting the [`Easy Mode`](#easy-mode) for the authorization, you will receive the following Urls:
-
-<img src="https://i.imgur.com/rDW1gB8.png" width="1000" alt="Easy-Mode-Auth">
-
-In case of selecting the [`Custom Mode`](#custom-mode) for the authorization, you will receive, you will receive the following Urls:
-
-<img src="https://i.imgur.com/Sd4ztiD.png" width="1000" alt="Custom-Mode-Auth">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
