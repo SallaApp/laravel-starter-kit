@@ -115,7 +115,9 @@ The above `create-project` will take you through a step-by-step process in which
 
 3. **Last step**: in your command line: **run** `php artisan serve.remote` command
 
-![8HPj07id-2021-11-19 at 00 15 37](https://user-images.githubusercontent.com/10876587/142498178-73e13f33-8f2a-401c-b7b0-7278e282be57.gif)
+
+![XBHrsHj4-2021-11-19 at 00 37 54](https://user-images.githubusercontent.com/10876587/142501121-48608b18-a14e-4f6d-968c-022b6a29b221.gif)
+
 
 Now you can open your broswer to view your App at `Remote App Url` in the output URLs.  🎉
 
