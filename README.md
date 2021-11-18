@@ -124,12 +124,12 @@ Now you can open your broswer to view your App at [http://127.0.0.1:8000](http:/
     <tr valign="top">
         <td>
             <ol>
-	            <li>Local App Url: The local link for your App.</li>
-	            <li>Remote App Url: The online link to your App. It will be always synced with the local Url</li>
-	            <li>Webhook Url: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
+	            <li>_Local App Url_: The local link for your App.</li>
+	            <li>_Remote App Url_: The online link to your App. It will be always synced with the local Url</li>
+	            <li>_Webhook Url_: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
             </ol>
         </td>
-        <td><img src="https://i.imgur.com/TbJNF1m.png" width="1000" alt="Easy-Mode-Auth"></td>
+        <td><img src="https://i.imgur.com/rBPsBRT.png" width="1000" alt="Easy-Mode-Auth"></td>
     </tr>
 </table>
 
@@ -138,13 +138,13 @@ Now you can open your broswer to view your App at [http://127.0.0.1:8000](http:/
     <tr valign="top">
         <td>
             <ol>
-	            <li>Local App Url: The local link for your App.</li>
-	            <li>Remote App Url: The online link to your App. It will be always synced with the local Url</li>
-	            <li>Webhook Url: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
-	            <li>OAuth Callback Url: The App entry page where the access token generated.</li>
+	            <li>_Local App Url_: The local link for your App.</li>
+	            <li>_Remote App Url_: The online link to your App. It will be always synced with the local Url</li>
+	            <li>_Webhook Url_: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
+	            <li>_OAuth Callback Url_: The App entry page where the access token generated.</li>
             </ol>
         </td>
-        <td align="right"><img src="https://i.imgur.com/AQ9gkqJ.png" width="1000" alt="Custom-Mode-Auth"></td>
+        <td align="right"><img src="https://i.imgur.com/bcs2ENv.png" width="1000" alt="Custom-Mode-Auth"></td>
     </tr>
 </table>
 
