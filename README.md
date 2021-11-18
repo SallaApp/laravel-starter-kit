@@ -119,8 +119,8 @@ php artisan serve.remote
    
 Now you can open your broswer to view your App at [http://127.0.0.1:8000](http://127.0.0.1:8000/)  🎉
 
-<p align="center"><img src="https://i.imgur.com/TbJNF1m.png" width="660" alt="Easy-Mode-Auth"></p>
-<p align="center"><img src="https://i.imgur.com/AQ9gkqJ.png" width="660" alt="Custom-Mode-Auth"></p>
+<p align="center"><img src="https://i.imgur.com/TbJNF1m.png" width="550" alt="Easy-Mode-Auth"></p>
+<p align="center"><img src="https://i.imgur.com/AQ9gkqJ.png" width="550" alt="Custom-Mode-Auth"></p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
