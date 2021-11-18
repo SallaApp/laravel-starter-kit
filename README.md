@@ -112,15 +112,40 @@ The setup will take you through a step-by-step process in which you'll enter you
 
 > 📝 In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Partner Portal](https://salla.partners/)**
 
-4. In your command line: **run** `serve.remote` command
+4. **Last step**: in your command line: **run** `serve.remote` command
 ```sh
 php artisan serve.remote
    ```
-   
 Now you can open your broswer to view your App at [http://127.0.0.1:8000](http://127.0.0.1:8000/)  🎉
 
-<p align="center"><img src="https://i.imgur.com/TbJNF1m.png" width="550" alt="Easy-Mode-Auth"></p>
-<p align="center"><img src="https://i.imgur.com/AQ9gkqJ.png" width="550" alt="Custom-Mode-Auth"></p>
+> 📝 In case of selecting [`Easy Mode`](#easy-mode) for authorization, you will receive the following Urls:
+<table>
+    <tr valign="top">
+        <td>
+            <ol>
+	            <li>Local App Url: The local link for your App.</li>
+	            <li>Remote App Url: The online link to your App. It will be always synced with the local Url</li>
+	            <li>Webhook Url: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
+            </ol>
+        </td>
+        <td><img src="https://i.imgur.com/TbJNF1m.png" width="1000" alt="Easy-Mode-Auth"></td>
+    </tr>
+</table>
+
+> 📝 In case of selecting [`Custom Mode`](#custom-mode) for authorization, you will receive, you will receive the following Urls::
+<table style="width: 100%;">
+    <tr valign="top">
+        <td>
+            <ol>
+	            <li>Local App Url: The local link for your App.</li>
+	            <li>Remote App Url: The online link to your App. It will be always synced with the local Url</li>
+	            <li>Webhook Url: The Url link that connects your App with any action may happen at the Merchant store, e.g. create new product.</li>
+	            <li>OAuth Callback Url: The App entry page where the access token generated.</li>
+            </ol>
+        </td>
+        <td align="right"><img src="https://i.imgur.com/AQ9gkqJ.png" width="1000" alt="Custom-Mode-Auth"></td>
+    </tr>
+</table>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
