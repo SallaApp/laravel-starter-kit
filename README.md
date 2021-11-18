@@ -169,7 +169,7 @@ A callback Url is the Url that is triggered when the App has been granted author
 > 📝 The custom url will redirect the merchant to the [Store Dashboard](https://s.salla.sa/apps) in order to access the Store where he needs your App to be installed.
 
 TODO
-- [] Token refresh(). 
+- Token refresh(). 
 
 ## Usage
 
