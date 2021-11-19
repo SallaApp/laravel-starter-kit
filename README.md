@@ -109,28 +109,45 @@ composer create-project salla/laravel-start-kit {your-awesome-app}
 
 The above `create-project` will take you through a step-by-step process in which you'll enter your App's _Client ID, Client Secret Key, and Webhook Secret Key_, which you can get from your App dashboard in the Partners Panel, as well as your database name, which is set to `laravel` by default.
 
+![0llFTlgU-2021-11-19 at 10 21 27](https://user-images.githubusercontent.com/10876587/142582379-e6e7ef2e-03d2-47a7-ad4c-2a3f655293e6.gif)
+
+
 > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
 > In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)**
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-3. **Last step**: in your command line: **run** `php artisan serve.remote` command
+## Usage
 
+1. In your command line: **Run** `php artisan serve.remote` command
 
 ![XBHrsHj4-2021-11-19 at 00 37 54](https://user-images.githubusercontent.com/10876587/142501121-48608b18-a14e-4f6d-968c-022b6a29b221.gif)
 
+Now you can open your broswer to view your App at `Remote App Url` in the [output URLs.](#output-urls).  🎉
 
-Now you can open your broswer to view your App at `Remote App Url` in the output URLs.  🎉
+2. Login to the Laravel App with the demo account:  Email:  `awesome@salla.dev`, Password:  `in ksa`
+3. Click the button to request the _Access Token_.
+4. The Laravel App will redirect you to Merchent Auth Page.
+5. Login using a Merchent Account (or the demo store of your app).
+5. Give the access to your App.
 
+
+> If you are using [Easy mode.](#auth-modes.easy) the access token will push to the action ([`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18)) via webhook
+>
+> If you are using [Custom mode.](#auth-modes.custom) the browser will redirect you again to the [`callback() page`](app/Http/Controllers/OAuthController.php#L26).
+
+#### Output URLs <span id='output-urls'>
 
 | URL               | Description                                                                                                              |
 |------------------|-----------------------------------------------------------------------------------------------------------------|
 | Local App Url      | The local link for your App\.                                                                                     |
 | Remote App Url     | The online link to your App\. It will be always synced with the local Url                                         |
-| Webhook Url        | The Url link that connects your App with any action may happen at the Merchant store, e\.g\. create new product\. |
+| Webhook Url        | The Url link that connects your App with any action may happen at the Merchant store, e\.g\. \ncreate new product\. |
 | OAuth Callback Url | The App entry page where the access token generated                                                               |
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 ### Configure Authorization Modes <span id='auth-modes'>
 
@@ -141,13 +158,13 @@ While creating your App in the [Salla Partners Portal](https://salla.partners/),
 
 <p align="center"><img src="https://i.imgur.com/TvSCAWC.png" width="660" alt="Salla Laravel App folder structure"></p>
 
-#### Easy Mode:
+#### Easy Mode <span id='auth-modes.easy'>
     
 This mode is the default mode for the authorization, which means that the `access token` is generated automatically at Salla's side back to you.
 You may refere to the class [`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18) which is defined inside [`app\Actions\App\StoreAuthorize.php`](app/Actions/App/StoreAuthorize.php) to get more detailes on how to receive and manage the `access token`
 
     
-#### Custom Mode:
+#### Custom Mode <span id='auth-modes.custom'>
     
 A callback Url is the Url that is triggered when the App has been granted authorization. This should be a valid Url to which the merchant's browser is redirected. In this mode, you will need to set a custom callback url from the App dashboard at the [Salla Partner Portal](https://salla.partners/). This callback url will redirect the merchants who are interested in using your app into your App entry page where the access token generated.
 
@@ -155,24 +172,29 @@ You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Con
 
 > The custom url will redirect the merchant to the [Store Dashboard](https://s.salla.sa/apps) in order to access the Store where he needs your App to be installed.
 
-TODO
-- Token refresh().
+#### Refreshing a Token
 
-## Usage
+Access tokens expire after one week. Once expired, you will have to refresh a user’s access token. you can easly request an new access token via the current refresh token for any user like this
 
-- Upon installation, your Laravel App home page will be available at http://127.0.0.1:8000. You need to start with doing _Login_.
-- Login to the Laravel App with the demo account:
-  >  Email:  `awesome@salla.dev`
-  >  Password:  `in ksa`
-- Click the button to request the _Access Token_.
-- The Laravel App will redirect you to Merchent Auth Page.
-- Login using a Merchent Account.
-- Give the access to your Demo App.
-- The browser will redirect your again to Laravel App.
-- Setup the callback url on Salla Partner Portal to http://127.0.0.1:8000/oauth/callback
+```php
+try {
+    // set the current user
+    // or any user you want to refresh his access token
+    app('salla.auth')
+        ->forUser(auth()->user())
+        ->getNewAccessToken();
+    
+    // by defaul the function `getNewAccessToken` will get a new access token 
+    // and save the new access token to the same user you are set it in the `forUser` function
+} catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $exception) {
+    // in case the token access token & refresh token is expired
+    // you should redirect the user again to Salla authorization service to get a new token
+    // return redirect()->route('oauth.redirect');
+}
+```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
+    
 <!-- Webhooks -->
 ## Webhooks
 [Webhooks](https://docs.salla.dev/docs/merchant/ZG9jOjI0NTE3NDg1-webhook) simplify the communicate between your App and [Salla APIs](https://docs.salla.dev/). In this way, you will to be notified whenever your app receives payload/data from the Salla APIs. These webhooks are triggered along with many actions such us an order or product is created, a customer logs in, a coupon is applied, and much more.
