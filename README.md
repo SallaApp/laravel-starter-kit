@@ -324,7 +324,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 <!-- COMMANDS -->
 ## Commands
 ### Setup command
-The setup file can be found in [`app/Console/Commands/Setup.php`](https://github.com/SallaApp/Laravel-Start-Kit/blob/ffbed5807075e8da28dd445049ea3aaadf688c1a/app/Console/Commands/Setup.php).
+The setup file can be found in [`app/Console/Commands/Setup.php`](https://github.com/SallaApp/laravel-starter-kit/blob/master/app/Console/Commands/Setup.php).
 
 ```sh
 php artisan setup
