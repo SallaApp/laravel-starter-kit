@@ -1,12 +1,5 @@
 <div id="top"></div>
 
-<!-- PROJECT SHIELDS -->
-[![GitHub forks](https://img.shields.io/github/forks/SallaApp/Laravel-Start-Kit?style=flat-square)](https://github.com/SallaApp/Laravel-Start-Kit/network)
-[![GitHub stars](https://img.shields.io/github/stars/SallaApp/Laravel-Start-Kit?style=flat-square)](https://github.com/SallaApp/Laravel-Start-Kit/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/SallaApp/Laravel-Start-Kit?style=flat-square)](https://github.com/SallaApp/Laravel-Start-Kit/issues)
-[![GitHub license](https://img.shields.io/github/license/SallaApp/Laravel-Start-Kit?style=flat-square)](https://github.com/SallaApp/Laravel-Start-Kit)
-[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fsallapartners)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FSallaApp%2FLaravel-Start-Kit)
-
 <br />
 <div align="center"> 
   <a href="https://salla.dev"> 
