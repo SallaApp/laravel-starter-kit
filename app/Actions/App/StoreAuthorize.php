@@ -4,7 +4,7 @@ namespace App\Actions\App;
 
 use App\Actions\BaseAction;
 use App\Models\User;
-use App\SallaAuthService;
+use App\Services\SallaAuthService;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use League\OAuth2\Client\Token\AccessToken;

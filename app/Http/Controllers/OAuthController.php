@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\SallaAuthService;
+use App\Services\SallaAuthService;
 use Illuminate\Http\Request;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 
