@@ -28,13 +28,13 @@ class Setup extends Command
     public function handle()
     {
         // 1. Setup Salla App Settings
-        $client_id = $this->ask('Client ID');
+        $client_id = $this->ask('APP Client ID');
 
         if (!empty($client_id)) {
             $this->writeNewEnvironmentFileWith($client_id, 'SALLA_OAUTH_CLIENT_ID');
         }
 
-        $client_secret = $this->ask('Client Secret');
+        $client_secret = $this->ask('APP Client Secret');
         if (!empty($client_secret)) {
             $this->writeNewEnvironmentFileWith($client_secret, 'SALLA_OAUTH_CLIENT_SECRET');
         }
@@ -47,7 +47,7 @@ class Setup extends Command
             $this->writeNewEnvironmentFileWith($auth_mode, 'SALLA_AUTHORIZATION_MODE');
         }
 
-        $webhook_secret = $this->ask('Webhook Secret');
+        $webhook_secret = $this->ask('APP Webhook Secret');
         if (!empty($webhook_secret)) {
             $this->writeNewEnvironmentFileWith($webhook_secret, 'SALLA_WEBHOOK_SECRET');
         }

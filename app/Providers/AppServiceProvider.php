@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\SallaAuthService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('salla.auth', function () {
+            return $this->app->make(SallaAuthService::class);
+        });
     }
 
     /**

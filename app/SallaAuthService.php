@@ -5,6 +5,7 @@ namespace App;
 use App\Models\OauthToken;
 use App\Models\User;
 use Illuminate\Support\Traits\ForwardsCalls;
+use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use League\OAuth2\Client\Token\AccessToken;
 use Salla\OAuth2\Client\Provider\Salla;
 use Salla\OAuth2\Client\Provider\SallaUser;
@@ -24,7 +25,7 @@ class SallaAuthService
     /**
      * @var OauthToken
      */
-    protected $token;
+    public $token;
 
     public function __construct()
     {
@@ -145,5 +146,16 @@ class SallaAuthService
     public function isEasyMode(): bool
     {
         return config('services.salla.authorization_mode') === 'easy';
+    }
+
+    /**
+     * Requests and returns the resource owner of given access token.
+     *
+     * @param  AccessToken $token
+     * @return ResourceOwnerInterface
+     */
+    public function getResourceOwner(?AccessToken $token)
+    {
+        return $this->provider->getResourceOwner($token ?: new AccessToken($this->token->toArray()));
     }
 }
