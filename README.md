@@ -109,8 +109,7 @@ composer create-project salla/laravel-start-kit {your-awesome-app}
 
 The above `create-project` will take you through a step-by-step process in which you'll enter your App's _Client ID, Client Secret Key, and Webhook Secret Key_, which you can get from your App dashboard in the Partners Panel, as well as your database name, which is set to `laravel` by default.
 
-![0llFTlgU-2021-11-19 at 10 21 27](https://user-images.githubusercontent.com/10876587/142582379-e6e7ef2e-03d2-47a7-ad4c-2a3f655293e6.gif)
-
+![FxNjM6ii-2021-11-19 at 11 10 21](https://user-images.githubusercontent.com/10876587/142588575-f730e962-06c5-49f0-b728-837ee5dc676c.gif)
 
 > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
 > In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)**
