@@ -54,7 +54,7 @@
             "npm install",
             "npm run prod",
             "@php artisan setup --ansi",
-            "@php artisan serve.rmote"
+            "@php artisan serve.remote"
         ]
     },
     "extra": {
