@@ -172,7 +172,35 @@ You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Con
 
 > The custom url will redirect the merchant to the [Store Dashboard](https://s.salla.sa/apps) in order to access the Store where he needs your App to be installed.
 
-#### Refreshing a Token
+
+## Authorization Service
+    
+This project come with a simple singleton authorization service to help you to manage the access and refresh tokens
+    
+```php
+// set the current user or any user you want to use his access tokens
+app('salla.auth')->forUser(auth()->user());
+
+// Get the get the store details
+/** Salla\OAuth2\Client\Provider\SallaUser::class **/
+app('salla.auth')->getResourceOwner();
+
+// Made an API request using the current access token of the user
+app('salla.auth')->request('GET', 'https://api.salla.dev/admin/v2/products')['data'];
+    
+// Request a new access token
+app('salla.auth')->getNewAccessToken();
+
+// Save the access token
+auth()->user()->token()->create([
+    'merchant'      => 'id',
+    'access_token'  => 'access token',
+    'expires_in'    => 'expires in sec',
+    'refresh_token' => 'refresh token'
+]);
+```
+
+### Refreshing a Token
 
 Access tokens expire after one week. Once expired, you will have to refresh a user’s access token. you can easly request an new access token via the current refresh token for any user like this
 
@@ -192,8 +220,6 @@ try {
     // return redirect()->route('oauth.redirect');
 }
 ```
-
-
     
 <!-- Webhooks -->
 ## Webhooks
@@ -281,6 +307,8 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 | [storetax.created](app/Actions/Store/TaxCreated.php)               | Creats a new Store Tax               |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+    
 
 ### Coupon Related Webhooks/Actions
 
