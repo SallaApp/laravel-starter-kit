@@ -29,21 +29,27 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li>
-            <a href="#configure-authorization-modes-">Configure Authorization Modes</a>
-            <ul>
-                <li><a href="#easy-mode">Easy Mode</a></li>
-                <li><a href="#custom-mode">Custom Mode</a></li>
-            </ul>
-        </li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li>
+        <a href="#configure-authorization-modes-">Configure Authorization Modes</a>
+        <ul>
+            <li><a href="#easy-mode-">Easy Mode</a></li>
+            <li><a href="#custom-mode-">Custom Mode</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#authorization-service">Authorization Service</a>
+        <ul>
+            <li><a href="#refreshing-a-token">Refreshing a Token</a></li>
+        </ul>
+    </li>
+    <li>
         <a href="#webhooks">Webhooks</a>
         <ul>
             <li><a href="#order-related-webhooksactions">Order Related Webhooks/Actions</a></li>
-            <li><a href="##products-related-webhooksactions">Products Related Webhooks/Actions</a></li>
+            <li><a href="#products-related-webhooksactions">Products Related Webhooks/Actions</a></li>
             <li><a href="#customer-related-webhooksactions">Customer Related Webhooks/Actions</a></li>
             <li><a href="#category-related-webhooksactions">Category Related Webhooks/Actions</a></li>
             <li><a href="#brand-related-webhooksactions">Brand Related Webhooks/Actions</a></li>
@@ -60,7 +66,6 @@
     </li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -69,7 +74,7 @@
 This is a starter App includes a Laravel application equipped with the required auth processes and webhooks/actions that help you to create your Salla App which works with the [Salla APIs](https://docs.salla.dev/). Your App later can be published to the [Salla App Store](https://apps.salla.sa/) and be available for installation to any of Salla [Merchants Stores](https://s.salla.sa/).
 
 What can you use this starter App for?
-* Create a Salla App from scratch, e.g. chatbot app or shipping service app or any amazing app from your idea.
+* Create a Salla App from scratch, e.g. chatbot app or shipping service app, or any amazing app from your idea.
 * Modify/Customize any of your previous Apps in order to take the advantages given by this starter App.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -82,7 +87,7 @@ The starter App comes with an easy _1-command step_ that does the complete setup
 -   Create a Partner account at  [Salla Partner Portal](https://salla.partners/)
 -   Create your App in [Salla Partner Portal](https://salla.dev/blog/create-your-first-app-on-salla-developer-portal/)
 
-    > From your App dashbaord at [Salla Partner Portal](https://salla.partners/), you will be able to get your App's _Client ID, Client Secret Key and Webhook Secret Key_ which you will use later duraing the setup process.
+    > From your App dashboard at [Salla Partner Portal](https://salla.partners/), you will be able to get your App's _Client ID, Client Secret Key and Webhook Secret Key_ which you will use later duraing the setup process.
 
 -   For Laravel compatibility: `PHP >= 7.4, Composer package manager and MySql Database`
 -   Install [ngrok](https://www.npmjs.com/package/ngrok): `npm install ngrok -g`
@@ -105,7 +110,7 @@ The above `create-project` will take you through a step-by-step process in which
 ![FxNjM6ii-2021-11-19 at 11 10 21](https://user-images.githubusercontent.com/10876587/142588575-f730e962-06c5-49f0-b728-837ee5dc676c.gif)
 
 > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
-> In case you selected the _Custom_ mode for your App authorization, you will need to the enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)**
+> In case you selected the _Custom_ mode for your App authorization, you will need to enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)**
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -115,13 +120,13 @@ The above `create-project` will take you through a step-by-step process in which
 
 ![XBHrsHj4-2021-11-19 at 00 37 54](https://user-images.githubusercontent.com/10876587/142501121-48608b18-a14e-4f6d-968c-022b6a29b221.gif)
 
-Now you can open your broswer to view your App at `Remote App Url` in the [output URLs.](#output-urls).  🎉
+Now you can open your browser to view your App at `Remote App Url` in the [output URLs.](#output-urls).  🎉
 
 2. Login to the Laravel App with the demo account:  Email:  `awesome@salla.dev`, Password:  `in ksa`
 3. Click the button to request the _Access Token_.
-4. The Laravel App will redirect you to Merchent Auth Page.
-5. Login using a Merchent Account (or the demo store of your app).
-5. Give the access to your App.
+4. The Laravel App will redirect you to Merchant Auth Page.
+5. Login using a Merchant Account (or the demo store of your app).
+5. Give access to your App.
 
 
 > If you are using [Easy mode.](#auth-modes.easy) the access token will push to the action ([`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18)) via webhook
@@ -134,8 +139,8 @@ Now you can open your broswer to view your App at `Remote App Url` in the [outpu
 |------------------|-----------------------------------------------------------------------------------------------------------------|
 | Local App Url      | The local link for your App\.                                                                                     |
 | Remote App Url     | The online link to your App\. It will be always synced with the local Url                                         |
-| Webhook Url        | The Url link that connects your App with any action may happen at the Merchant store, e\.g\. \ncreate new product\. |
-| OAuth Callback Url | The App entry page where the access token generated                                                               |
+| Webhook Url        | The Url link that connects your App with any action that may happen at the Merchant store, e\.g\. \ncreate new product\. |
+| OAuth Callback Url | The App entry page where the access token is generated; Note that this Url is available only for the `Custom` mode auth.                                                               |
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -153,21 +158,22 @@ While creating your App in the [Salla Partners Portal](https://salla.partners/),
 #### Easy Mode <span id='auth-modes.easy'>
     
 This mode is the default mode for the authorization, which means that the `access token` is generated automatically at Salla's side back to you.
-You may refere to the class [`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18) which is defined inside [`app\Actions\App\StoreAuthorize.php`](app/Actions/App/StoreAuthorize.php) to get more detailes on how to receive and manage the `access token`
+You may refer to the class [`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18) which is defined inside [`app\Actions\App\StoreAuthorize.php`](app/Actions/App/StoreAuthorize.php) to get more details on how to receive and manage the `access token`
 
     
 #### Custom Mode <span id='auth-modes.custom'>
     
-A callback Url is the Url that is triggered when the App has been granted authorization. This should be a valid Url to which the merchant's browser is redirected. In this mode, you will need to set a custom callback url from the App dashboard at the [Salla Partner Portal](https://salla.partners/). This callback url will redirect the merchants who are interested in using your app into your App entry page where the access token generated.
+A callback Url is the Url that is triggered when the App has been granted authorization. This should be a valid Url to which the merchant's browser is redirected. In this mode, you will need to set a custom callback url from the App dashboard at the [Salla Partner Portal](https://salla.partners/). This callback url will redirect the merchants who are interested in using your app into your App entry page where the access token is generated.
 
-You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Controllers/OAuthController.php) which contains the [`callback()`](app/Http/Controllers/OAuthController.php#L26) function. This function is responsiable for generating the `access token`
+You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Controllers/OAuthController.php) which contains the [`callback()`](app/Http/Controllers/OAuthController.php#L26) function. This function is responsible for generating the `access token`
 
 > The custom url will redirect the merchant to the [Store Dashboard](https://s.salla.sa/apps) in order to access the Store where he needs your App to be installed.
 
-
+<br />
+    
 ## Authorization Service
     
-This project come with a simple singleton authorization service to help you to manage the access and refresh tokens
+This project comes with a simple singleton authorization service to help you with managing the access and refresh tokens
     
 ```php
 // set the current user or any user you want to use his access tokens
@@ -194,7 +200,7 @@ auth()->user()->token()->create([
 
 ### Refreshing a Token
 
-Access tokens expire after one week. Once expired, you will have to refresh a user’s access token. you can easly request an new access token via the current refresh token for any user like this
+Access tokens expire after one week. Once expired, you will have to refresh a user’s access token. you can easily request a new access token via the current refresh token for any user like this
 
 ```php
 try {
@@ -212,12 +218,13 @@ try {
     // return redirect()->route('oauth.redirect');
 }
 ```
+<br />
     
 <!-- Webhooks -->
 ## Webhooks
-[Webhooks](https://docs.salla.dev/docs/merchant/ZG9jOjI0NTE3NDg1-webhook) simplify the communicate between your App and [Salla APIs](https://docs.salla.dev/). In this way, you will to be notified whenever your app receives payload/data from the Salla APIs. These webhooks are triggered along with many actions such us an order or product is created, a customer logs in, a coupon is applied, and much more.
+[Webhooks](https://docs.salla.dev/docs/merchant/ZG9jOjI0NTE3NDg1-webhook) simplify the communication between your App and [Salla APIs](https://docs.salla.dev/). In this way, you will be notified whenever your app receives payload/data from the Salla APIs. These webhooks are triggered along with many actions such as an order or product being created, a customer logs in, a coupon is applied, and much more.
 
-Salla already defined a list of the webhooks/actions that are triggered automatically. The predefined webhooks/actions can be found in folder [`app/Actions`](https://github.com/SallaApp/Laravel-Start-Kit/tree/master/app/Actions).
+Salla already defined a list of the webhooks/actions that are triggered automatically. The predefined webhooks/actions can be found in the folder [`app/Actions`](https://github.com/SallaApp/Laravel-Start-Kit/tree/master/app/Actions).
 
 ### Order Related Webhooks/Actions
 
@@ -329,7 +336,8 @@ The predefined [Webhooks](#webhooks), events/actions, can be found in folder [`a
 ```sh
 php artisan make:webhook.event {event-name}
 ```
-
+<br />
+    
 <!-- CONTRIBUTING -->
 ## Contributing
 
