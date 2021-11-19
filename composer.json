@@ -1,8 +1,8 @@
 {
-    "name": "salla/laravel-start-kit",
+    "name": "salla/laravel-starter-kit",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "An awesome starter template to create your Salla Apps today! 🚀",
+    "keywords": ["framework", "laravel", "salla", "oauth2"],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
