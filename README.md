@@ -104,7 +104,7 @@ The installation process is straightforward as you will see in the below steps.
 
 2.  In your command line: **run** the following `create-project` composer command to create your Laravel starter App project.
 ```sh
-composer create-project salla/laravel-start-kit {your-awesome-app}
+composer create-project salla/laravel-starter-kit {your-awesome-app}
 ```
 
 The above `create-project` will take you through a step-by-step process in which you'll enter your App's _Client ID, Client Secret Key, and Webhook Secret Key_, which you can get from your App dashboard in the Partners Panel, as well as your database name, which is set to `laravel` by default.
