@@ -149,7 +149,7 @@ Now you can open your broswer to view your App at `Remote App Url` in the [outpu
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-### Configure Authorization Modes <span id='auth-modes'>
+## Configure Authorization Modes <span id='auth-modes'>
 
 While creating your App in the [Salla Partners Portal](https://salla.partners/), you will see that Salla provids two methods for the OAuth protocol, which are the `Easy Mode` and the `Custom Mode`.
     
