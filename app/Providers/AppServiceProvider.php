@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\SallaAuthService;
+use App\Services\SallaAuthService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

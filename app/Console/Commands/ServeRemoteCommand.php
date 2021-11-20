@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\SallaAuthService;
+use App\Services\SallaAuthService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\OutputInterface;
