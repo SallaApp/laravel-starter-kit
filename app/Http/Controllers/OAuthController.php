@@ -70,8 +70,10 @@ class OAuthController extends Controller
             // You can now save the access token and refresh token in your database
             // with the merchant details and redirect him again to Salla dashboard (https://s.salla.sa/apps)
             $request->user()->token()->delete();
-
+            
+            //we must add the merchant feild here 
             $request->user()->token()->create([
+                'merchant'      => $user->getStoreId() ?? null,
                 'access_token'  => $token->getToken(),
                 'expires_in'    => $token->getExpires(),
                 'refresh_token' => $token->getRefreshToken()
