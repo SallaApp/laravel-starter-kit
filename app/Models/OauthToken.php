@@ -15,6 +15,6 @@ class OauthToken extends Model
 
     public function hasExpired()
     {
-         return now()->timestamp > $this->expires_in;
+        return now()->gte($this->updated_at->addSeconds($this->expires_in));
     }
 }
