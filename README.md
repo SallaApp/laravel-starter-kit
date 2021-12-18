@@ -210,7 +210,7 @@ try {
         ->forUser(auth()->user())
         ->getNewAccessToken();
     
-    // by defaul the function `getNewAccessToken` will get a new access token 
+    // by default the function `getNewAccessToken` will get a new access token 
     // and save the new access token to the same user you are set it in the `forUser` function
 } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $exception) {
     // in case the token access token & refresh token is expired
