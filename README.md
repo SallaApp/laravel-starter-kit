@@ -64,6 +64,7 @@
             <li><a href="#create-new-webhookaction-command">Create new Webhook/Action command</a></li>
       </ul>
     </li>
+    <li><a href="#support">Support</a></li>  
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
   </ol>
@@ -337,6 +338,10 @@ The predefined [Webhooks](#webhooks), events/actions, can be found in folder [`a
 php artisan make:webhook.event {event-name}
 ```
 <br />
+    
+## Support
+
+The team is always here to help you. Happen to face an issue? Want to report a bug? You can submit one here on Github using the [Issue Tracker](https://github.com/SallaApp/Salla-CLI/issues/new). If you still have any questions, please contact us via the [Telegram Bot](https://t.me/SallaSupportBot) or join in the Global Developer Community on [Telegram](https://t.me/salladev).
     
 <!-- CONTRIBUTING -->
 ## Contributing
