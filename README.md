@@ -94,13 +94,13 @@ That is all!
 ### Installation
 The installation process is straightforward as you will see in the below steps.
 
-1. In your MySql Database: **create a database** with any name for example  `laravel`.
+1. In your MySql Database: **create a database** with any name for example `laravel`.
 
 2.  With Salla CLI installed, **run** the following command to create your Laravel starter app project: ```salla app create``` and follow on-screen instructions.
 
 The above `salla app create` command will take you through a step-by-step process in which you'll enter your App's name, short description, select your App's type and authorization mode, and select your app's framework which you will set to `laravel` in this case.
 
-![Salla App Create Command](https://i.ibb.co/jHH0TTv/Clean-Shot-2022-01-05-at-09-46-16-min-min-1.gif)
+![Salla App Create Command](https://i.ibb.co/SRZbbJY/ezgif-com-gif-maker.gif)
 
 <!-- > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
 > In case you selected the _Custom_ mode for your App authorization, you will need to enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)** -->
