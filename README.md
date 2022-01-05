@@ -85,14 +85,9 @@ What can you use this starter App for?
 The starter App comes with an easy _1-command step_ that does the complete setup for your starter App. To be ready, you will need some prerequisites which will be listed hereafter.
 
 ### Prerequisites
--   Create a Partner account at  [Salla Partner Portal](https://salla.partners/)
--   Create your App in [Salla Partner Portal](https://salla.dev/blog/create-your-first-app-on-salla-developer-portal/)
-
-    > From your App dashboard at [Salla Partner Portal](https://salla.partners/), you will be able to get your App's _Client ID, Client Secret Key and Webhook Secret Key_ which you will use later duraing the setup process.
-
--   For Laravel compatibility: `PHP >= 7.4, Composer package manager and MySql Database`
--   Install [ngrok](https://www.npmjs.com/package/ngrok): `npm install ngrok -g`
--   Other requirments: `Nodejs and npm`
+- Create a Partner account at  [Salla Partner Portal](https://salla.partners/)
+- Install [Salla CLI](https://github.com/SallaApp/Salla-CLI) via NPM: `npm install @salla.sa/cli -g`
+- For Laravel compatibility: `PHP >= 7.4, Composer package manager and MySql Database`
 
 That is all!
 
@@ -101,17 +96,14 @@ The installation process is straightforward as you will see in the below steps.
 
 1. In your MySql Database: **create a database** with any name for example  `laravel`.
 
-2.  In your command line: **run** the following `create-project` composer command to create your Laravel starter App project.
-```sh
-composer create-project salla/laravel-starter-kit {your-awesome-app}
-```
+2.  With Salla CLI installed, **run** the following command to create your Laravel starter app project: ```salla app create``` and follow on-screen instructions.
 
-The above `create-project` will take you through a step-by-step process in which you'll enter your App's _Client ID, Client Secret Key, and Webhook Secret Key_, which you can get from your App dashboard in the Partners Panel, as well as your database name, which is set to `laravel` by default.
+The above `salla app create` command will take you through a step-by-step process in which you'll enter your App's name, short description, select your App's type and authorization mode, and select your app's framework which you will set to `laravel` in this case.
 
-![FxNjM6ii-2021-11-19 at 11 10 21](https://user-images.githubusercontent.com/10876587/142588575-f730e962-06c5-49f0-b728-837ee5dc676c.gif)
+![Salla App Create Command](https://i.ibb.co/92tKgZz/Clean-Shot-2021-12-27-at-21-31-15.gif)
 
-> The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
-> In case you selected the _Custom_ mode for your App authorization, you will need to enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)**
+<!-- > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
+> In case you selected the _Custom_ mode for your App authorization, you will need to enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)** -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -164,7 +156,7 @@ You may refer to the class [`StoreAuthorize`](app/Actions/App/StoreAuthorize.php
     
 #### Custom Mode <span id='auth-modes.custom'>
     
-A callback Url is the Url that is triggered when the App has been granted authorization. This should be a valid Url to which the merchant's browser is redirected. In this mode, you will need to set a custom callback url from the App dashboard at the [Salla Partner Portal](https://salla.partners/). This callback url will redirect the merchants who are interested in using your app into your App entry page where the access token is generated.
+A callback Url is the Url that is triggered when the App has been granted authorization. This should be a valid Url to which the merchant's browser is redirected. In this mode, you will need to set a custom callback url from the App dashboard at the [Salla Partner Portal](https://salla.partners/). This callback url will redirect the merchants who are interested in using your app into your App entry page where the access token is generated. Moreover, using the Salla CLI command `salla app serve`, your callback url will be automatically updated. 
 
 You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Controllers/OAuthController.php) which contains the [`callback()`](app/Http/Controllers/OAuthController.php#L26) function. This function is responsible for generating the `access token`
 
@@ -220,6 +212,10 @@ try {
 }
 ```
 <br />
+
+## Examples
+
+TBD
     
 <!-- Webhooks -->
 ## Webhooks
