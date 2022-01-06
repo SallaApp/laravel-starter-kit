@@ -48,6 +48,7 @@
     <li>
         <a href="#webhooks">Webhooks</a>
         <ul>
+        <li><a href="#create-new-webhookaction-command">Create new Webhook/Action command</a></li>
             <li><a href="#order-related-webhooksactions">Order Related Webhooks/Actions</a></li>
             <li><a href="#products-related-webhooksactions">Products Related Webhooks/Actions</a></li>
             <li><a href="#customer-related-webhooksactions">Customer Related Webhooks/Actions</a></li>
@@ -55,13 +56,6 @@
             <li><a href="#brand-related-webhooksactions">Brand Related Webhooks/Actions</a></li>
             <li><a href="#store-related-webhooksactions">Store Related Webhooks/Actions</a></li>
             <li><a href="#coupon-related-webhooksactions">Coupon Related Webhooks/Actions</a></li>
-      </ul>
-    </li>
-    <li>
-        <a href="#commands">Commands</a>
-        <ul>
-            <li><a href="#setup-command">Setup command</a></li>
-            <li><a href="#create-new-webhookaction-command">Create new Webhook/Action command</a></li>
       </ul>
     </li>
     <li><a href="#support">Support</a></li>  
@@ -96,11 +90,7 @@ The installation process is straightforward as you will see in the below steps.
 
 1. In your MySql Database: **create a database** with any name for example `laravel`.
 
-2.  With Salla CLI installed, **run** the following command to create your Laravel starter app project: ```salla app create``` and follow on-screen instructions.
-
-The above `salla app create` command will take you through a step-by-step process in which you'll enter your App's name, short description, select your App's type and authorization mode, and select your app's framework which you will set to `laravel` in this case.
-
-![Salla App Create Command](https://i.ibb.co/4TjDbTm/Clean-Shot-2022-01-05-at-10-41-16.gif)
+2.  Salla CLI: to run the salla binary commands such as salla app create and salla app create-webhook <event.name>
 
 <!-- > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
 > In case you selected the _Custom_ mode for your App authorization, you will need to enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)** -->
@@ -109,31 +99,11 @@ The above `salla app create` command will take you through a step-by-step proces
 
 ## Usage
 
-1. In your command line: **Run** `php artisan serve.remote` command
+With [Salla CLI](https://github.com/SallaApp/Salla-CLI) installed, **run** the following command to create your Laravel starter app project: ```salla app create``` and follow on-screen instructions.
 
-![XBHrsHj4-2021-11-19 at 00 37 54](https://user-images.githubusercontent.com/10876587/142501121-48608b18-a14e-4f6d-968c-022b6a29b221.gif)
+List of existing apps assocaited to your account will be displayed as well as an option to create your app on [Salla Partners Portal](https://salla.partners/). Afterwards, you will be presented with easy-to fill in information to create your app.
 
-Now you can open your browser to view your App at `Remote App Url` in the [output URLs.](#output-urls).  🎉
-
-2. Login to the Laravel App with the demo account:  Email:  `awesome@salla.dev`, Password:  `in ksa`
-3. Click the button to request the _Access Token_.
-4. The Laravel App will redirect you to Merchant Auth Page.
-5. Login using a Merchant Account (or the demo store of your app).
-5. Give access to your App.
-
-
-> If you are using [Easy mode.](#auth-modes.easy) the access token will push to the action ([`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18)) via webhook
->
-> If you are using [Custom mode.](#auth-modes.custom) the browser will redirect you again to the [`callback() page`](app/Http/Controllers/OAuthController.php#L26).
-
-#### Output URLs <span id='output-urls'>
-
-| URL               | Description                                                                                                              |
-|------------------|-----------------------------------------------------------------------------------------------------------------|
-| Local App Url      | The local link for your App\.                                                                                     |
-| Remote App Url     | The online link to your App\. It will be always synced with the local Url                                         |
-| Webhook Url        | The Url link that connects your App with any action that may happen at the Merchant store, e\.g\. \ncreate new product\. |
-| OAuth Callback Url | The App entry page where the access token is generated; Note that this Url is available only for the `Custom` mode auth.                                                               |
+![Salla App Create Command](https://i.ibb.co/92tKgZz/Clean-Shot-2021-12-27-at-21-31-15.gif)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -153,6 +123,7 @@ While creating your App in the [Salla Partners Portal](https://salla.partners/),
 This mode is the default mode for the authorization, which means that the `access token` is generated automatically at Salla's side back to you.
 You may refer to the class [`StoreAuthorize`](app/Actions/App/StoreAuthorize.php#L18) which is defined inside [`app\Actions\App\StoreAuthorize.php`](app/Actions/App/StoreAuthorize.php) to get more details on how to receive and manage the `access token`
 
+
     
 #### Custom Mode <span id='auth-modes.custom'>
     
@@ -162,8 +133,8 @@ You may refere to file [`app/Http/Controllers/OAuthController.php`](app/Http/Con
 
 > The custom url will redirect the merchant to the [Store Dashboard](https://s.salla.sa/apps) in order to access the Store where he needs your App to be installed.
 
-<br />
-    
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Authorization Service
     
 This project comes with a simple singleton authorization service to help you with managing the access and refresh tokens
@@ -193,7 +164,7 @@ auth()->user()->token()->create([
 
 ### Refreshing a Token
 
-Access tokens expire after one week. Once expired, you will have to refresh a user’s access token. you can easily request a new access token via the current refresh token for any user like this
+Access tokens expire after two weeks. Once expired, you will have to refresh a user’s access token. you can easily request a new access token via the current refresh token for any user like this
 
 ```php
 try {
@@ -218,12 +189,28 @@ try {
 TBD -->
     
 <!-- Webhooks -->
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Webhooks
 [Webhooks](https://docs.salla.dev/docs/merchant/ZG9jOjI0NTE3NDg1-webhook) simplify the communication between your App and [Salla APIs](https://docs.salla.dev/). In this way, you will be notified whenever your app receives payload/data from the Salla APIs. These webhooks are triggered along with many actions such as an order or product being created, a customer logs in, a coupon is applied, and much more.
 
+### Create new Webhook/Action command
 Salla already defined a list of the webhooks/actions that are triggered automatically. The predefined webhooks/actions can be found in the folder [`app/Actions`](https://github.com/SallaApp/Laravel-Start-Kit/tree/master/app/Actions).
 
-### Order Related Webhooks/Actions
+Run the following command to create your webhook event:
+
+```bash
+salla app create-webhook <event.name>
+```
+
+![Salla App Create-Webhook Command](https://i.ibb.co/yBstbgx/Clean-Shot-2021-12-27-at-16-16-47.gif)
+
+<hr>
+
+You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant/ZG9jOjI0NTE3NDg1-webhook#list-of-events) as follows:
+
+#### Order Related Webhooks/Actions
 
 | ** Action Name **                                                                 | ** Description **                                                              |
 |-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
@@ -248,7 +235,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Products Related Webhooks/Actions
+#### Products Related Webhooks/Actions
 
 | ** Action Name **                                            | ** Description **                                                                     |
 |--------------------------------------------------------------|---------------------------------------------------------------------------------------|
@@ -260,7 +247,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Customer Related Webhooks/Actions
+#### Customer Related Webhooks/Actions
 
 | ** Action Name **                                            | ** Description **                         |
 |--------------------------------------------------------------|-------------------------------------------|
@@ -271,7 +258,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Category Related Webhooks/Actions
+#### Category Related Webhooks/Actions
 
 
 | ** Action Name **                                     | ** Description **                                     |
@@ -281,7 +268,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Brand Related Webhooks/Actions
+#### Brand Related Webhooks/Actions
 
 | ** Action Name **                               | ** Description **                                                                      |
 |-------------------------------------------------|----------------------------------------------------------------------------------------|
@@ -291,7 +278,7 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Store Related Webhooks/Actions
+#### Store Related Webhooks/Actions
 
 | ** Action Name **                                                  | ** Description **                    |
 |--------------------------------------------------------------------|--------------------------------------|
@@ -304,9 +291,8 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-    
 
-### Coupon Related Webhooks/Actions
+#### Coupon Related Webhooks/Actions
 
 | ** Action Name **                                                          | ** Description **                                 |
 |----------------------------------------------------------------------------|---------------------------------------------------|
@@ -318,26 +304,9 @@ Salla already defined a list of the webhooks/actions that are triggered automati
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- COMMANDS -->
-## Commands
-### Setup command
-The setup file can be found in [`app/Console/Commands/Setup.php`](https://github.com/SallaApp/Laravel-Start-Kit/blob/ffbed5807075e8da28dd445049ea3aaadf688c1a/app/Console/Commands/Setup.php).
-
-```sh
-php artisan setup
-```
-
-### Create new Webhook/Action command
-The predefined [Webhooks](#webhooks), events/actions, can be found in folder [`app/Actions`](https://github.com/SallaApp/Laravel-Start-Kit/tree/master/app/Actions).
-> You may define your own new webhook/action the way fits your App's requirments.
-```sh
-php artisan make:webhook.event {event-name}
-```
-<br />
-    
 ## Support
 
-The team is always here to help you. Happen to face an issue? Want to report a bug? You can submit one here on Github using the [Issue Tracker](https://github.com/SallaApp/Salla-CLI/issues/new). If you still have any questions, please contact us via the [Telegram Bot](https://t.me/SallaSupportBot) or join in the Global Developer Community on [Telegram](https://t.me/salladev).
+The team is always here to help you. Happen to face an issue? Want to report a bug? You can submit one here on Github using the [Issue Twithracker](https://github.com/SallaApp/Salla-CLI/issues/new). If you still have any questions, please contact us via the [Telegram Bot](https://t.me/SallaSupportBot) or join in the Global Developer Community on [Telegram](https://t.me/salladev).
     
 <!-- CONTRIBUTING -->
 ## Contributing
