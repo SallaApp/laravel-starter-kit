@@ -80,7 +80,6 @@ The starter App comes with an easy _1-command step_ that does the complete setup
 
 ### Prerequisites
 - Create a Partner account at  [Salla Partner Portal](https://salla.partners/)
-- Install [Salla CLI](https://github.com/SallaApp/Salla-CLI) via NPM: `npm install @salla.sa/cli -g`
 - For Laravel compatibility: `PHP >= 7.4, Composer package manager and MySql Database`
 
 That is all!
@@ -89,8 +88,8 @@ That is all!
 The installation process is straightforward as you will see in the below steps.
 
 1. In your MySql Database: **create a database** with any name for example `laravel`.
-
-2.  [Salla CLI](https://github.com/SallaApp/Salla-CLI): to run the `salla` binary commands such as `salla app create` and `salla app create-webhook <event.name>`
+2. Install [Salla CLI](https://github.com/SallaApp/Salla-CLI) via [NPM](https://www.npmjs.com/): `npm install @salla.sa/cli -g` 
+3. [Salla CLI](https://github.com/SallaApp/Salla-CLI): to run the `salla` binary commands such as `salla app create` and `salla app create-webhook <event.name>`
 
 <!-- > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
 > In case you selected the _Custom_ mode for your App authorization, you will need to enter the **same callback Url you already entered in your App dashboard at the [Salla Partner Portal](https://salla.partners/)** -->
