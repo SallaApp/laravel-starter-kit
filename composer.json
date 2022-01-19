@@ -50,11 +50,8 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "npm install ngrok -g",
             "npm install",
-            "npm run prod",
-            "@php artisan setup --ansi",
-            "@php artisan serve.remote"
+            "npm run prod"
         ]
     },
     "extra": {
