@@ -109,6 +109,23 @@ List of existing apps assocaited to your account will be displayed as well as an
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+__Important Note:__
+> If you are using [Easy mode.](#auth-modes.easy) the access token will push to the action ([`app.store.authorize`](app\template\Actions\app\store.authorize.js)) via webhook
+>
+> If you are using [Custom mode.](#auth-modes.custom) the browser will redirect you again to the [`store.authorize.js file`](app\template\Actions\app\store.authorize.js).
+
+#### Output URLs <span id='output-urls'>
+
+| URL                | Description                                                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Local App Url      | The local link for your App\.                                                                                            |
+| Remote App Url     | The online link to your App\. It will be always synced with the local Url                                                |
+| Webhook Url        | The Url link that connects your App with any action that may happen at the Merchant store, e\.g\. \ncreate new product\. |
+| OAuth Callback Url | The App entry page where the access token is generated; Note that this Url is available only for the `Custom` mode auth. |
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 ## Configure Authorization Modes <span id='auth-modes'>
 
