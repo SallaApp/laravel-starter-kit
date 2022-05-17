@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Miscellaneous;
+namespace App\Actions\Cart;
 
 use App\Actions\BaseAction;
 

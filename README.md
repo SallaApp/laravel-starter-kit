@@ -237,7 +237,7 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 | [order.status.updated](app/Actions/Order/StatusUpdated.php)                      | Whenever there is an order status update, this is triggered                  |
 | [order.cancelled](app/Actions/Order/Cancelled.php)                               | This happens when an order is cancelled                                      |
 | [order.refunded](app/Actions/Order/Refunded.php)                                 | The refund action to refund the whole order is triggered.                    |
-| [order.deleted](app/Actions/Order/)                                             | This indicates an order has been deleted                                     |
+| [order.deleted](app/Actions/Order/Deleted.php)                                   | This indicates an order has been deleted                                     |
 | [order.products.updated](app/Actions/Order/ProductsUpdated.php)                  | Order products is updated                                                    |
 | [order.payment.updated](app/Actions/Order/PaymentUpdated.php)                    | A payment method has been updated                                            |
 | [order.coupon.updated](app/Actions/Order/CouponUpdated.php)                      | This is triggered whenever a Coupon is updated                               |
@@ -268,11 +268,11 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 | ** Action Name **        | ** Description **                                                                     |
 | ------------------------ | ------------------------------------------------------------------------------------- |
-| shipping.zone.created    | This is triggered when a shipping zone has been created for a custom shipping company |
-| shipping.zone.updated    | This is triggered when a shipping zone has been updated for a custom shipping company |
-| shipping.company.created | This is triggered when a custom shipping company has been created                     |
-| shipping.company.updated | This is triggered when a custom shipping company has been updated                     |
-| shipping.company.deleted | This is triggered when a custom shipping company has been deleted                     |
+| [shipping.zone.created](app/Actions/Shipping/ZoneCreated.php)    | This is triggered when a shipping zone has been created for a custom shipping company |
+| [shipping.zone.updated](app/Actions/Shipping/ZoneUpdated.php)    | This is triggered when a shipping zone has been updated for a custom shipping company |
+| [shipping.company.created](app/Actions/Shipping/CompanyCreated.php) | This is triggered when a custom shipping company has been created                  |
+| [shipping.company.updated](app/Actions/Shipping/CompanyUpdated.php) | This is triggered when a custom shipping company has been updated                  |
+| [shipping.company.deleted](app/Actions/Shipping/CompanyDeleted.php) | This is triggered when a custom shipping company has been deleted                  |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -325,6 +325,8 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 | ------------------------------------------------------------ | ----------------------------------------------- |
 | [abandoned.cart](app/Actions/Miscellaneous/AbandonedCart.php) | Outputs a list of abandoned carts               |
 | [coupon.applied](app/Actions/Miscellaneous/CouponApplied.php) | Creates a discount code in the form of a coupon |
+| [abandoned.cart](app/Actions/Cart/AbandonedCart.php) | Outputs a list of abandoned carts                       |
+| [coupon.applied](app/Actions/Cart/CouponApplied.php) | Creates a discount code in the form of a coupon         |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -334,6 +336,9 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 | ------------------------------------------------------------------------ | --------------------------- |
 | [specialoffer.created](app/Actions/Miscellaneous/SpecialofferCreated.php) | Creates a new special offer |
 | [specialoffer.updated](app/Actions/Miscellaneous/SpecialofferUpdated.php) | Updates a special offer     |
+| [specialoffer.created](app/Actions/Specialoffer/SpecialofferCreated.php) | Creates a new special offer |
+| [specialoffer.updated](app/Actions/Specialoffer/SpecialofferUpdated.php) | Updates a special offer     |
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
