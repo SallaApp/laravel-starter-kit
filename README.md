@@ -323,6 +323,8 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 | ** Action Name **                                            | ** Description **                               |
 | ------------------------------------------------------------ | ----------------------------------------------- |
+| [abandoned.cart](app/Actions/Miscellaneous/AbandonedCart.php) | Outputs a list of abandoned carts               |
+| [coupon.applied](app/Actions/Miscellaneous/CouponApplied.php) | Creates a discount code in the form of a coupon |
 | [abandoned.cart](app/Actions/Cart/AbandonedCart.php) | Outputs a list of abandoned carts                       |
 | [coupon.applied](app/Actions/Cart/CouponApplied.php) | Creates a discount code in the form of a coupon         |
 
@@ -332,8 +334,11 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 | ** Action Name **                                                        | ** Description **           |
 | ------------------------------------------------------------------------ | --------------------------- |
+| [specialoffer.created](app/Actions/Miscellaneous/SpecialofferCreated.php) | Creates a new special offer |
+| [specialoffer.updated](app/Actions/Miscellaneous/SpecialofferUpdated.php) | Updates a special offer     |
 | [specialoffer.created](app/Actions/Specialoffer/SpecialofferCreated.php) | Creates a new special offer |
 | [specialoffer.updated](app/Actions/Specialoffer/SpecialofferUpdated.php) | Updates a special offer     |
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
