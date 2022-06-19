@@ -12,7 +12,7 @@
     "devDependencies": {
         "@inertiajs/inertia": "^0.10.0",
         "@inertiajs/inertia-vue3": "^0.5.1",
-        "@inertiajs/progress": "^0.2.6",
+        "@inertiajs/progress": "^0.2.7",
         "@tailwindcss/forms": "^0.2.1",
         "@vue/compiler-sfc": "^3.0.5",
         "alpinejs": "^2.7.3",
