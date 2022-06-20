@@ -1858,26 +1858,27 @@
         },
         {
             "name": "lorisleiva/laravel-actions",
-            "version": "v2.1.5",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lorisleiva/laravel-actions.git",
-                "reference": "4df9827a8fc49ba4b0efd98d85c5a43787284b8c"
+                "reference": "4e60c9fbdfcea7d9977d882f3104c8996b43c169"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lorisleiva/laravel-actions/zipball/4df9827a8fc49ba4b0efd98d85c5a43787284b8c",
-                "reference": "4df9827a8fc49ba4b0efd98d85c5a43787284b8c",
+                "url": "https://api.github.com/repos/lorisleiva/laravel-actions/zipball/4e60c9fbdfcea7d9977d882f3104c8996b43c169",
+                "reference": "4e60c9fbdfcea7d9977d882f3104c8996b43c169",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^8.15",
-                "php": "^7.4|^8.0"
+                "illuminate/contracts": "^8.15|^9.0",
+                "lorisleiva/lody": "^0.3.0",
+                "php": "^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.0",
-                "pestphp/pest": "^0.3.14",
-                "phpunit/phpunit": "^9.3.10"
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.2",
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
@@ -1920,7 +1921,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lorisleiva/laravel-actions/issues",
-                "source": "https://github.com/lorisleiva/laravel-actions/tree/v2.1.5"
+                "source": "https://github.com/lorisleiva/laravel-actions/tree/v2.4.0"
             },
             "funding": [
                 {
@@ -1928,7 +1929,79 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-17T19:15:19+00:00"
+            "time": "2022-02-27T15:30:59+00:00"
+        },
+        {
+            "name": "lorisleiva/lody",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lorisleiva/lody.git",
+                "reference": "a69b2e5e4e63a07171ace00cfc262bd1c5a311ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lorisleiva/lody/zipball/a69b2e5e4e63a07171ace00cfc262bd1c5a311ee",
+                "reference": "a69b2e5e4e63a07171ace00cfc262bd1c5a311ee",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.0|^9.0",
+                "php": "^8.0|^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.20.0",
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lorisleiva\\Lody\\LodyServiceProvider"
+                    ],
+                    "aliases": {
+                        "Lody": "Lorisleiva\\Lody\\Lody"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lorisleiva\\Lody\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Loris Leiva",
+                    "email": "loris.leiva@gmail.com",
+                    "homepage": "https://lorisleiva.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Load files and classes as lazy collections in Laravel.",
+            "homepage": "https://github.com/lorisleiva/lody",
+            "keywords": [
+                "classes",
+                "collection",
+                "files",
+                "laravel",
+                "load"
+            ],
+            "support": {
+                "issues": "https://github.com/lorisleiva/lody/issues",
+                "source": "https://github.com/lorisleiva/lody/tree/v0.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/lorisleiva",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-01-25T15:50:27+00:00"
         },
         {
             "name": "monolog/monolog",
