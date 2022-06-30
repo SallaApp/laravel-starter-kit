@@ -974,16 +974,16 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v0.6.2",
+            "version": "v0.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "75859fb1586c3d37ed8705500b5f43e87eee3cb2"
+                "reference": "540b953ec383364264f9bd633849db16560a4461"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/75859fb1586c3d37ed8705500b5f43e87eee3cb2",
-                "reference": "75859fb1586c3d37ed8705500b5f43e87eee3cb2",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/540b953ec383364264f9bd633849db16560a4461",
+                "reference": "540b953ec383364264f9bd633849db16560a4461",
                 "shasum": ""
             },
             "require": {
@@ -1031,7 +1031,7 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
-                "source": "https://github.com/inertiajs/inertia-laravel/tree/v0.6.2"
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v0.6.3"
             },
             "funding": [
                 {
@@ -1039,7 +1039,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-25T02:00:06+00:00"
+            "time": "2022-06-27T23:21:15+00:00"
         },
         {
             "name": "laravel/framework",
