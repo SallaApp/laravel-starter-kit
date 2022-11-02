@@ -1874,25 +1874,26 @@
         },
         {
             "name": "lorisleiva/laravel-actions",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lorisleiva/laravel-actions.git",
-                "reference": "4e60c9fbdfcea7d9977d882f3104c8996b43c169"
+                "reference": "6701206501fcb048f1bba33b84a5a174188cadb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lorisleiva/laravel-actions/zipball/4e60c9fbdfcea7d9977d882f3104c8996b43c169",
-                "reference": "4e60c9fbdfcea7d9977d882f3104c8996b43c169",
+                "url": "https://api.github.com/repos/lorisleiva/laravel-actions/zipball/6701206501fcb048f1bba33b84a5a174188cadb7",
+                "reference": "6701206501fcb048f1bba33b84a5a174188cadb7",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^8.15|^9.0",
+                "illuminate/contracts": "^8.15 || 9.0 - 9.34 || ^9.36",
                 "lorisleiva/lody": "^0.3.0",
                 "php": "^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^7.0",
+                "orchestra/testbench": "7.0.0",
+                "orchestra/testbench-core": "7.0.0",
                 "pestphp/pest": "^1.2",
                 "phpunit/phpunit": "^9.5"
             },
@@ -1937,7 +1938,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lorisleiva/laravel-actions/issues",
-                "source": "https://github.com/lorisleiva/laravel-actions/tree/v2.4.0"
+                "source": "https://github.com/lorisleiva/laravel-actions/tree/v2.4.1"
             },
             "funding": [
                 {
@@ -1945,7 +1946,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-27T15:30:59+00:00"
+            "time": "2022-10-20T17:56:26+00:00"
         },
         {
             "name": "lorisleiva/lody",
