@@ -34,6 +34,6 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "daisyui": "^1.14.5"
+        "daisyui": "^2.51.6"
     }
 }
