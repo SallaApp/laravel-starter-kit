@@ -78,7 +78,7 @@ What can you use this starter App for?
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The starter App comes with an easy _1-command step_ that does the complete setup for your starter App. To be ready, you will need some prerequisites which will be listed hereafter.
+The starter App comes with an easy installation steps that do the complete setup for your starter App. To be ready, you will need some prerequisites which will be listed hereafter.
 
 ### Prerequisites
 
