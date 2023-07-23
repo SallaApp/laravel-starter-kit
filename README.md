@@ -78,19 +78,32 @@ What can you use this starter App for?
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The starter App comes with an easy _1-command step_ that does the complete setup for your starter App. To be ready, you will need some prerequisites which will be listed hereafter.
+The starter App comes with an easy installation steps that do the complete setup for your starter App. To be ready, you will need some prerequisites which will be listed hereafter.
 
 ### Prerequisites
-- Create a Partner account at  [Salla Partner Portal](https://salla.partners/)
-- For Laravel compatibility: `PHP >= 7.4, Composer package manager and MySql Database`
+
+Before proceeding with the installation, make sure you have the following prerequisites installed on your system:
+
+- Dependency Managers: [Node.js](https://nodejs.org/en) and [Composer](https://getcomposer.org/)
+- Web Server, PHP (>= 8.1), and MySQL
+
+- Create a Partner account at  [Salla Partner Portal](https://salla.partners/). 
+- Create a Salla App in your Partner account at  [Salla Partner Portal](https://salla.partners/). This is to get get the `client-id` and `client-secret`. 
+  
+- For Laravel compatibility: PHP >= 8.1, composer package manager, and MySql database.
 
 That is all!
 
 ### Installation
 The installation process is straightforward as you will see in the below steps.
 
-1. In your MySql Database: **create a database** with any name for example `laravel`.
-2. Install [Salla CLI](https://github.com/SallaApp/Salla-CLI) via [NPM](https://www.npmjs.com/): `npm install @salla.sa/cli -g` where you will be able to run the `salla` binary commands such as `salla app create` and `salla app create-webhook <event.name>`
+1. Clone this [Repo](https://github.com/SallaApp/laravel-starter-kit) to your own localhost.
+2. Install Dependencies: `npm install` and `composer install`
+3. Generate an Application Key: `php artisan key:generate`
+4. In your MySql Database: **create a database** with any name for example `laravel`.
+5. Update the [`.env`](https://github.com/SallaApp/laravel-starter-kit/blob/master/.env) file.
+
+
 <!-- 3. [Salla CLI](https://github.com/SallaApp/Salla-CLI): to run the `salla` binary commands such as `salla app create` and `salla app create-webhook <event.name>` -->
 
 <!-- > The step will ask you to select the authorization mode for your App, which can be [Easy or Custom mode.](#auth-modes)
@@ -100,7 +113,7 @@ The installation process is straightforward as you will see in the below steps.
 
 ## Usage
 
-With [Salla CLI](https://github.com/SallaApp/Salla-CLI) installed, **run** the following command to create your Laravel starter app project: ```salla app create``` and follow on-screen instructions.
+You may continue with using this [repo](https://github.com/SallaApp/laravel-starter-kit) as your starter project, or with [Salla CLI](https://github.com/SallaApp/Salla-CLI) installed, **run** the following command to create your Laravel starter app project: ```salla app create``` and follow on-screen instructions.
 
 List of existing apps assocaited to your account will be displayed as well as an option to create your app on [Salla Partners Portal](https://salla.partners/). Afterwards, you will be presented with easy-to fill in information to create your app.
 
