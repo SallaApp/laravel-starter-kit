@@ -83,14 +83,14 @@ The starter App comes with an easy installation steps that do the complete setup
 ### Prerequisites
 
 Before proceeding with the installation, make sure you have the following prerequisites installed on your system:
+- For Laravel compatibility: PHP >= 8.1, composer package manager, and MySql database.
 
 - Dependency Managers: [Node.js](https://nodejs.org/en) and [Composer](https://getcomposer.org/)
 - Web Server, PHP (>= 8.1), and MySQL
 
 - Create a Partner account at  [Salla Partner Portal](https://salla.partners/). 
-- Create a Salla App in your Partner account at  [Salla Partner Portal](https://salla.partners/). This is to get get the `client-id` and `client-secret`. 
+- Create a Salla App in your Partner account at  [Salla Partner Portal](https://salla.partners/). This is to get the `client-id` and `client-secret`. 
   
-- For Laravel compatibility: PHP >= 8.1, composer package manager, and MySql database.
 
 That is all!
 
@@ -113,9 +113,11 @@ The installation process is straightforward as you will see in the below steps.
 
 ## Usage
 
-You may continue with using this [repo](https://github.com/SallaApp/laravel-starter-kit) as your starter project, or with [Salla CLI](https://github.com/SallaApp/Salla-CLI) installed, **run** the following command to create your Laravel starter app project: ```salla app create``` and follow on-screen instructions.
+First you need to create your App in [Salla Partner Portal](https://salla.partners/). This is to get the `client-id` and `client-secret`. For thatm you may use the [Salla CLI](https://github.com/SallaApp/Salla-CLI). 
 
-List of existing apps assocaited to your account will be displayed as well as an option to create your app on [Salla Partners Portal](https://salla.partners/). Afterwards, you will be presented with easy-to fill in information to create your app.
+**Run** the following command to create your App and follow on-screen instructions.: 
+
+```salla app create``` 
 
 ![Salla App Create Command](https://i.ibb.co/92tKgZz/Clean-Shot-2021-12-27-at-21-31-15.gif)
 
@@ -124,8 +126,7 @@ List of existing apps assocaited to your account will be displayed as well as an
 
 __Important Note:__
 > If you are using [Easy mode.](#auth-modes.easy) the access token will push to the action ([`app.store.authorize`](app\template\Actions\app\store.authorize.js)) via webhook
->
-> If you are using [Custom mode.](#auth-modes.custom) the browser will redirect you again to the [`store.authorize.js file`](app\template\Actions\app\store.authorize.js).
+
 
 #### Output URLs <span id='output-urls'>
 
