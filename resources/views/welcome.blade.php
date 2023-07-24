@@ -40,7 +40,7 @@
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 px-5">
             <img src="https://salla.dev/wp-content/themes/salla-portal/dist/img/salla-logo.svg" class="mr-2" width="200px">
         </div>
-        <div class="ml-4 text-lg font-semibold" style="font-size: 1.6rem;">My Awesome App 🤩</div>
+        <div class="ml-4 text-lg font-semibold" style="font-size: 1.6rem;">🤩 My Awesome App 🤩</div>
 
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
             <div class="grid grid-cols-1 md:grid-cols-2">
