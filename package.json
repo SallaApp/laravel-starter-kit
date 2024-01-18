@@ -24,7 +24,7 @@
         "postcss": "^8.4.27",
         "postcss-import": "^15.1.0",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.64.1",
+        "sass": "^1.70.0",
         "sass-loader": "^13.3.2",
         "tailwindcss": "^3.3.3",
         "vue": "^3.3.4",
