@@ -240,11 +240,11 @@ salla app create-webhook <event.name>
 
 <hr>
 
-You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant/ZG9jOjI0NTE3NDg1-webhook#list-of-events) as follows:
+> You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant/ZG9jOjI0NTE3NDg1-webhook#list-of-events) as follows:
 
 #### Order Related Webhooks/Actions
 
-| ** Action Name **                                                               | ** Description **                                                            |
+| **Action Name**                                                               | **Description**                                                            |
 | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | [order.created](app/Actions/Order/Created.php)                                   | This indicates a singular order has been created                             |
 | [order.updated](app/Actions/Order/Updated.php)                                   | Details, data and/or content of a specific order have been refreshed updated |
@@ -268,7 +268,7 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 #### Product Related Webhooks/Actions
 
-| ** Action Name **                                          | ** Description **                                                                    |
+| **Action Name**                                          | **Description**                                                                    |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [product.created](app/Actions/Product/Created.php)          | A new product is created. Payload of the new product are to accompanying the product |
 | [product.updated](app/Actions/Product/Updated.php)          | Add/Modify details of a product                                                      |
@@ -280,7 +280,7 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 #### Shipping Companies Related Webhooks/Actions
 
-| ** Action Name **        | ** Description **                                                                     |
+| **Action Name**        | **Description**                                                                     |
 | ------------------------ | ------------------------------------------------------------------------------------- |
 | [shipping.zone.created](app/Actions/Shipping/ZoneCreated.php)    | This is triggered when a shipping zone has been created for a custom shipping company |
 | [shipping.zone.updated](app/Actions/Shipping/ZoneUpdated.php)    | This is triggered when a shipping zone has been updated for a custom shipping company |
@@ -292,7 +292,7 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 #### Customer Related Webhooks/Actions
 
-| ** Action Name **                                          | ** Description **                        |
+| **Action Name**                                          | **Description**                        |
 | ---------------------------------------------------------- | ---------------------------------------- |
 | [customer.created](app/Actions/Customer/Created.php)        | Create a new customer record             |
 | [customer.updated](app/Actions/Customer/Updated.php)        | Update details for a customer            |
@@ -303,7 +303,7 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 #### Category Related Webhooks/Actions
 
-| ** Action Name **                                   | ** Description **                                   |
+| **Action Name**                                   | **Description**                                   |
 | --------------------------------------------------- | --------------------------------------------------- |
 | [category.created](app/Actions/Category/Created.php) | Creates a new category for products to be put under |
 | [category.updated](app/Actions/Category/Updated.php) | Add new or reform existing category details         |
@@ -312,7 +312,7 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 #### Brand Related Webhooks/Actions
 
-| ** Action Name **                             | ** Description **                                                                    |
+| **Action Name**                             | **Description**                                                                    |
 | --------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [brand.created](app/Actions/Brand/Created.php) | Creates a new Brand.                                                                 |
 | [brand.updated](app/Actions/Brand/Updated.php) | Triggered when Information about a sepcific Brand is updated/refurbished/streamlined |
@@ -322,7 +322,7 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 #### Store Related Webhooks/Actions
 
-| ** Action Name **                                                | ** Description **                  |
+| **Action Name**                                                | **Description**                  |
 | ---------------------------------------------------------------- | ---------------------------------- |
 | [store.branch.created](app/Actions/Store/BranchCreated.php)       | Creates a new store.               |
 | [store.branch.updated](app/Actions/Store/BranchUpdated.php)       | Updates an existing branch         |
@@ -335,30 +335,25 @@ You may find the supported [Webhook events](https://docs.salla.dev/docs/merchant
 
 #### Cart Related Webhooks/Actions
 
-| ** Action Name **                                            | ** Description **                               |
+| **Action Name**                                            | **Description**                               |
 | ------------------------------------------------------------ | ----------------------------------------------- |
 | [abandoned.cart](app/Actions/Miscellaneous/AbandonedCart.php) | Outputs a list of abandoned carts               |
 | [coupon.applied](app/Actions/Miscellaneous/CouponApplied.php) | Creates a discount code in the form of a coupon |
-| [abandoned.cart](app/Actions/Cart/AbandonedCart.php) | Outputs a list of abandoned carts                       |
-| [coupon.applied](app/Actions/Cart/CouponApplied.php) | Creates a discount code in the form of a coupon         |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Special Offer Related Webhooks/Actions
 
-| ** Action Name **                                                        | ** Description **           |
+| **Action Name**                                                        | **Description**           |
 | ------------------------------------------------------------------------ | --------------------------- |
 | [specialoffer.created](app/Actions/Miscellaneous/SpecialofferCreated.php) | Creates a new special offer |
 | [specialoffer.updated](app/Actions/Miscellaneous/SpecialofferUpdated.php) | Updates a special offer     |
-| [specialoffer.created](app/Actions/Specialoffer/SpecialofferCreated.php) | Creates a new special offer |
-| [specialoffer.updated](app/Actions/Specialoffer/SpecialofferUpdated.php) | Updates a special offer     |
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Miscellaneous Related Webhooks/Actions
 
-| ** Action Name **                                        | ** Description **               |
+| **Action Name**                                        | **Description**               |
 | -------------------------------------------------------- | ------------------------------- |
 | [review.added](app/Actions/Miscellaneous/ReviewAdded.php) | A product review has been added |
 
