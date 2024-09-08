@@ -113,7 +113,7 @@ The installation process is straightforward as you will see in the below steps.
 
 ## Usage
 
-First you need to create your App in [Salla Partner Portal](https://salla.partners/). This is to get the `client-id` and `client-secret`. For thatm you may use the [Salla CLI](https://github.com/SallaApp/Salla-CLI). 
+First you need to create your App in [Salla Partner Portal](https://salla.partners/). This is to get the `client-id` and `client-secret`. For that you may use the [Salla CLI](https://github.com/SallaApp/Salla-CLI). 
 
 **Run** the following command to create your App and follow on-screen instructions.: 
 
