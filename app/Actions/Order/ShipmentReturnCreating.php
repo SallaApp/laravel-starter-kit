@@ -10,7 +10,7 @@ use App\Actions\BaseAction;
  * @property string event example "order.shipment.return.creating"
  * @property array data @see https://docs.salla.dev/docs/merchent/c2NoOjE4OTY4MzIz-order-shipment-return-creating
  */
-class shipmentReturnCreating extends BaseAction
+class ShipmentReturnCreating extends BaseAction
 {
     public function handle()
     {
