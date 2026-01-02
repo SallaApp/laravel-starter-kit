@@ -5,26 +5,25 @@
     "keywords": ["framework", "laravel", "salla", "oauth2"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
-        "fruitcake/php-cors": "^1.0",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "inertiajs/inertia-laravel": "^1.0",
-        "laravel/framework": "^11.0",
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.9",
+        "inertiajs/inertia-laravel": "^2.0",
+        "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.5",
-        "laravel/ui": "^4.0",
-        "lorisleiva/laravel-actions": "^2.1",
+        "laravel/tinker": "^2.10",
+        "laravel/ui": "^4.6",
+        "lorisleiva/laravel-actions": "^2.8",
         "salla/ouath2-merchant": "^1.0",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^2.4"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^2.0",
-        "fakerphp/faker": "^1.9.1",
-        "laravel/breeze": "^2.0",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^8.1",
-        "phpunit/phpunit": "^10.0"
+        "fakerphp/faker": "^1.23",
+        "laravel/breeze": "^2.3",
+        "laravel/pail": "^1.2",
+        "laravel/sail": "^1.41",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5"
     },
     "autoload": {
         "psr-4": {
@@ -44,17 +43,23 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi",
             "npm install",
-            "npm run prod"
+            "npm run build"
         ]
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "12.x-dev"
+        },
         "laravel": {
             "dont-discover": []
         }
@@ -62,7 +67,11 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
     },
     "minimum-stability": "stable",
     "prefer-stable": true

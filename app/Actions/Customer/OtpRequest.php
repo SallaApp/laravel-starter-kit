@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Order;
+namespace App\Actions\Customer;
 
 use App\Actions\BaseAction;
 

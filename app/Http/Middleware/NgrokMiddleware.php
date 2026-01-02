@@ -5,20 +5,16 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Symfony\Component\HttpFoundation\Response;
 
 class NgrokMiddleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string[]  ...$guards
-     *
-     * @return mixed
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
         if (!app()->isLocal()) {
             return $next($request);
@@ -46,13 +42,8 @@ class NgrokMiddleware
         return $next($request);
     }
 
-
     /**
      * Extract the original scheme from the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     *
-     * @return string
      */
     private function extractOriginalScheme(Request $request): string
     {
@@ -67,10 +58,6 @@ class NgrokMiddleware
 
     /**
      * Extract the original host from the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     *
-     * @return string
      */
     private function extractOriginalHost(Request $request): string
     {
@@ -84,14 +71,10 @@ class NgrokMiddleware
     }
 
     /**
-     * Check if the host from ngrok.
-     *
-     * @param  string  $host
-     *
-     * @return bool
+     * Check if the host is from ngrok.
      */
     private function isNgrokHost(string $host): bool
     {
-        return preg_match('/(.*)\.ngrok\.io$/i', $host);
+        return preg_match('/(.*)\.ngrok(-free)?\.app$/i', $host) || preg_match('/(.*)\.ngrok\.io$/i', $host);
     }
 }
