@@ -5,17 +5,16 @@
     "keywords": ["framework", "laravel", "salla", "oauth2"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
-        "fruitcake/php-cors": "^1.0",
+        "php": "^8.2",
         "guzzlehttp/guzzle": "^7.0.1",
-        "inertiajs/inertia-laravel": "^1.0",
+        "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.5",
+        "laravel/tinker": "^3.0",
         "laravel/ui": "^4.0",
         "lorisleiva/laravel-actions": "^2.1",
         "salla/ouath2-merchant": "^1.0",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^2.0",
@@ -24,7 +23,7 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^8.1",
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
         "psr-4": {
