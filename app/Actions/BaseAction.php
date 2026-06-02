@@ -9,19 +9,16 @@ abstract class BaseAction
 {
     use AsAction;
 
-    /**
-     * @var WebhookRequest
-     */
-    protected $request;
+    protected WebhookRequest $request;
 
-    public function setRequest(WebhookRequest $request)
+    public function setRequest(WebhookRequest $request): static
     {
         $this->request = $request;
 
         return $this;
     }
 
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         return $this->request->get($name);
     }

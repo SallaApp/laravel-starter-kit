@@ -3,18 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class OauthToken extends Model
 {
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
     protected $guarded = [];
 
-    public function hasExpired()
+    public function user(): BelongsTo
     {
-         return now()->timestamp > $this->expires_in;
+        return $this->belongsTo(User::class);
+    }
+
+    public function hasExpired(): bool
+    {
+        return now()->timestamp > $this->expires_in;
     }
 }

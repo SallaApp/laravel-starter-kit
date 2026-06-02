@@ -7,24 +7,12 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
-        $this->app->singleton('salla.auth', function () {
-            return $this->app->make(SallaAuthService::class);
-        });
+        $this->app->singleton('salla.auth', SallaAuthService::class);
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
         //
     }
