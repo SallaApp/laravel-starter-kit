@@ -70,6 +70,10 @@ class SallaAuthService
             'refresh_token' => $token->getRefreshToken(),
         ]);
 
+        $this->token->access_token = $token->getToken();
+        $this->token->expires_in = $token->getExpires();
+        $this->token->refresh_token = $token->getRefreshToken();
+
         return $token;
     }
 
