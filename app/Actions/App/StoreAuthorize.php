@@ -35,7 +35,7 @@ class StoreAuthorize extends BaseAction
             'password' => Hash::make(Str::random()),
         ]);
 
-        $user->token()->create([
+        $user->token()->updateOrCreate([], [
             'merchant' => $storeDetails->getStoreId(),
             'access_token' => $this->data['access_token'],
             'expires_in' => $this->data['expires'],

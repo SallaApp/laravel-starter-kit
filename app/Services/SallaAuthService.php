@@ -56,7 +56,7 @@ class SallaAuthService
      */
     public function getNewAccessToken(): AccessToken
     {
-        if ($this->token->hasExpired()) {
+        if (! $this->token->hasExpired()) {
             return new AccessToken($this->token->toArray());
         }
 
@@ -75,9 +75,9 @@ class SallaAuthService
 
     public function request(string $method, string $url, array $options = []): mixed
     {
-        $this->getNewAccessToken();
+        $token = $this->getNewAccessToken();
 
-        return $this->provider->fetchResource($method, $url, $this->token->access_token, $options);
+        return $this->provider->fetchResource($method, $url, $token->getToken(), $options);
     }
 
     public function __call(string $name, array $arguments): mixed

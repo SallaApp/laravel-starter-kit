@@ -28,7 +28,9 @@ class DashboardController extends Controller
             }
 
             $store = $this->salla->getStoreDetail();
-            $products = $this->salla->request('GET', 'https://api.salla.dev/admin/v2/products')['data'];
+            $products = $this->salla->request('GET', 'https://api.salla.dev/admin/v2/products', [
+                'headers' => ['User-Agent' => 'Salla-Laravel-Starter-Kit/1.0'],
+            ])['data'];
         }
 
         return view('dashboard', [

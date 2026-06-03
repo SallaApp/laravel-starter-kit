@@ -27,9 +27,10 @@ class OAuthController extends Controller
                 'code' => $request->code ?? '',
             ]);
 
-            $request->user()->token()->delete();
+            $storeDetails = $this->service->getResourceOwner($token);
 
-            $request->user()->token()->create([
+            $request->user()->token()->updateOrCreate([], [
+                'merchant' => $storeDetails->getStoreId(),
                 'access_token' => $token->getToken(),
                 'expires_in' => $token->getExpires(),
                 'refresh_token' => $token->getRefreshToken(),

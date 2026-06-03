@@ -52,19 +52,27 @@ class Setup extends Command
             $this->writeNewEnvironmentFileWith($webhook_secret, 'SALLA_WEBHOOK_SECRET');
         }
 
-        $database_name = $this->ask('Database Name', 'laravel');
-        if (! empty($database_name)) {
-            $this->writeNewEnvironmentFileWith($database_name, 'DB_DATABASE');
-        }
+        $db_connection = $this->choice('Database Connection', [
+            'sqlite' => 'SQLite (file-based, no credentials needed)',
+            'mysql' => 'MySQL',
+        ], 'sqlite');
+        $this->writeNewEnvironmentFileWith($db_connection, 'DB_CONNECTION');
 
-        $database_username = $this->ask('Database UserName', 'root');
-        if (! empty($database_username)) {
-            $this->writeNewEnvironmentFileWith($database_username, 'DB_USERNAME');
-        }
-        $database_password = $this->ask('Database Password', 'root');
+        if ($db_connection !== 'sqlite') {
+            $database_name = $this->ask('Database Name', 'laravel');
+            if (! empty($database_name)) {
+                $this->writeNewEnvironmentFileWith($database_name, 'DB_DATABASE');
+            }
 
-        if (! empty($database_password)) {
-            $this->writeNewEnvironmentFileWith($database_password, 'DB_PASSWORD');
+            $database_username = $this->ask('Database UserName', 'root');
+            if (! empty($database_username)) {
+                $this->writeNewEnvironmentFileWith($database_username, 'DB_USERNAME');
+            }
+            $database_password = $this->ask('Database Password', 'root');
+
+            if (! empty($database_password)) {
+                $this->writeNewEnvironmentFileWith($database_password, 'DB_PASSWORD');
+            }
         }
 
         $this->call('key:generate');

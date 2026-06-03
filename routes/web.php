@@ -9,11 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/oauth/redirect', [OAuthController::class, 'redirect'])->name('oauth.redirect');
+Route::get('/oauth/callback', [OAuthController::class, 'callback'])->name('oauth.callback');
+
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-
-    Route::get('/oauth/redirect', [OAuthController::class, 'redirect'])->name('oauth.redirect');
-    Route::get('/oauth/callback', [OAuthController::class, 'callback'])->name('oauth.callback');
 });
 
 Route::post('/webhook', WebhookController::class)->name('webhook');

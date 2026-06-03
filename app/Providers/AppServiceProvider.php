@@ -9,7 +9,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton('salla.auth', SallaAuthService::class);
+        $this->app->bind('salla.auth', SallaAuthService::class);
     }
 
     public function boot(): void
