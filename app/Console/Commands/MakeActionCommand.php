@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Str;
 
 class MakeActionCommand extends GeneratorCommand
@@ -12,10 +13,12 @@ class MakeActionCommand extends GeneratorCommand
     protected $description = 'Create a new Action to handling Salla webhook event';
 
     protected $type = 'Action';
+
     /**
      * @var string
      */
     protected $component;
+
     /**
      * @var string
      */
@@ -36,7 +39,6 @@ class MakeActionCommand extends GeneratorCommand
      *
      * @param  string  $stub
      * @param  string  $name
-     *
      * @return $this
      */
     protected function replaceCustomVars(&$stub, $name)
@@ -54,10 +56,9 @@ class MakeActionCommand extends GeneratorCommand
      * Build the class with the given name.
      *
      * @param  string  $name
-     *
      * @return string
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
     protected function buildClass($name)
     {

@@ -14,27 +14,33 @@ return [
     |
     */
 
-    'mailgun' => [
-        'domain'   => env('MAILGUN_DOMAIN'),
-        'secret'   => env('MAILGUN_SECRET'),
-        'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+    'postmark' => [
+        'key' => env('POSTMARK_API_KEY'),
     ],
 
-    'postmark' => [
-        'token' => env('POSTMARK_TOKEN'),
+    'resend' => [
+        'key' => env('RESEND_API_KEY'),
     ],
 
     'ses' => [
-        'key'    => env('AWS_ACCESS_KEY_ID'),
+        'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'slack' => [
+        'notifications' => [
+            'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
+            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
+        ],
+    ],
+
     'salla' => [
-        'client_id'          => env('SALLA_OAUTH_CLIENT_ID'),
-        'client_secret'      => env('SALLA_OAUTH_CLIENT_SECRET'),
-        'redirect'           => env('SALLA_OAUTH_CLIENT_REDIRECT_URI'),
-        'webhook_secret'     => env('SALLA_WEBHOOK_SECRET'),
-        'authorization_mode' => env('SALLA_AUTHORIZATION_MODE', 'easy')   // Supported: "easy", "custom"
-    ]
+        'client_id' => env('SALLA_OAUTH_CLIENT_ID'),
+        'client_secret' => env('SALLA_OAUTH_CLIENT_SECRET'),
+        'redirect' => env('SALLA_OAUTH_CLIENT_REDIRECT_URI'),
+        'webhook_secret' => env('SALLA_WEBHOOK_SECRET'),
+        'authorization_mode' => env('SALLA_AUTHORIZATION_MODE', 'easy'),
+    ],
+
 ];
