@@ -1,0 +1,39 @@
+name: 'Lint PR'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+
+jobs:
+  title:
+    name: Validate PR title
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
+    steps:
+      # skip on new commits and on body-only edits
+      - if: >-
+          github.event.action != 'synchronize' &&
+          (github.event.action != 'edited' || github.event.changes.title != null)
+        uses: SallaApp/.CI/lint-pr@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  branch:
+    name: Validate branch name
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
+    steps:
+      # head branch can't change on an open PR; only open/reopen or a base change matters
+      - if: >-
+          github.event.action == 'opened' ||
+          github.event.action == 'reopened' ||
+          (github.event.action == 'edited' && github.event.changes.base != null)
+        uses: SallaApp/.CI/lint-branch@master
